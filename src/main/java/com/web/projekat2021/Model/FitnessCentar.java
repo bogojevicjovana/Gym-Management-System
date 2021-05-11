@@ -2,6 +2,8 @@ package com.web.projekat2021.Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class FitnessCentar implements Serializable {
@@ -22,10 +24,11 @@ public class FitnessCentar implements Serializable {
     @Column
     private String email;
 
+    @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Trener> treneri = new HashSet<>();
 
-
-
-
+    @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Sala> sale = new HashSet<>();
 
 
 }

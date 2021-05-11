@@ -40,4 +40,6 @@ public class Korisnik {
     private Boolean aktivan; //true ako je aktivan, false ako nije
 
 
+
+
 }

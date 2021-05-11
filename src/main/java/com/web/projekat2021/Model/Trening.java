@@ -23,6 +23,8 @@ public class Trening implements Serializable {
     @Column
     private String trajanje;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Trener trener;
 
 
 
