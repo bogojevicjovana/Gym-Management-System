@@ -12,4 +12,3 @@ INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telef
 VALUES ('ivana.petkovic', 'sifr125', 'Ivana', 'Petkovic', 'Trener', 00381674124545, '22.04.1996.', 'petkovicivana@gmail.com', true, 'trener', 2);
 
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Power Pilates', 'akcenat na disanju i tehnici', 'Pilates', 60, 1);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Power Pilates', 'akcenat na disanju i tehnici', 'Pilates', 60, 1);

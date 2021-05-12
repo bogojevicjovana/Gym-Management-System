@@ -10,7 +10,8 @@ public class KorisnikController {
 
     @GetMapping("/")
     public String welcome() {
-        return "registration.html";
+        return "home.html";
     }
+
 
 }

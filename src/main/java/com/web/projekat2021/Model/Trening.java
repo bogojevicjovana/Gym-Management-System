@@ -4,6 +4,7 @@ package com.web.projekat2021.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Set;
 
 @Entity
@@ -39,7 +40,5 @@ public class Trening implements Serializable {
             joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"))
     private Set<Clan> prijavljeniClanovi = new HashSet<>();
-
-
 
 }
