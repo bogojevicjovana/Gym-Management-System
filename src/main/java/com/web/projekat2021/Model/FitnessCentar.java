@@ -39,5 +39,57 @@ public class FitnessCentar implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> treninzi = new HashSet<>();
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public String getBrTelefonaCentrale() {
+        return brTelefonaCentrale;
+    }
+
+    public void setBrTelefonaCentrale(String brTelefonaCentrale) {
+        this.brTelefonaCentrale = brTelefonaCentrale;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "FitnessCentar{" +
+                "id=" + id +
+                ", naziv='" + naziv + '\'' +
+                ", adresa='" + adresa + '\'' +
+                ", brTelefonaCentrale='" + brTelefonaCentrale + '\'' +
+                ", email='" + email + '\'' +
+                ", treneri=" + treneri +
+                ", sale=" + sale +
+                ", treninzi=" + treninzi +
+                '}';
+    }
 }

@@ -41,4 +41,49 @@ public class Trening implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"))
     private Set<Clan> prijavljeniClanovi = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "trening_odrzavanje_sala",
+            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"))
+    private Set<Sala> listaSalaTreninga = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public void setOpis(String opis) {
+        this.opis = opis;
+    }
+
+    public String getTipTreninga() {
+        return tipTreninga;
+    }
+
+    public void setTipTreninga(String tipTreninga) {
+        this.tipTreninga = tipTreninga;
+    }
+
+    public String getTrajanje() {
+        return trajanje;
+    }
+
+    public void setTrajanje(String trajanje) {
+        this.trajanje = trajanje;
+    }
 }

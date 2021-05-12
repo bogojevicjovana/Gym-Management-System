@@ -13,8 +13,10 @@ public class Clan extends Korisnik{
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> treninzi = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "prijavljeniClanovi")
     private Set<Trening> prijavljeniTreninzi = new HashSet<>();
+
+
 
 
 }
