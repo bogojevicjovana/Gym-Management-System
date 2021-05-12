@@ -21,4 +21,6 @@ public class Sala implements Serializable {
     private FitnessCentar fitnesscentar;
 
 
+
+
 }

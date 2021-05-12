@@ -24,11 +24,20 @@ public class FitnessCentar implements Serializable {
     @Column
     private String email;
 
+    // u jednom fitnescentru radi vise trenera
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> treneri = new HashSet<>();
 
+    //u jednom fitnes centru nalazi se vise sala, jedna sala nalazi se samo u jednom fitnes centru
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> sale = new HashSet<>();
+
+
+    @ManyToMany
+    @JoinTable(name = "raspored_treninga",
+            joinColumns = @JoinColumn(name = "fitnesscentar_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+    private Set<Trening> treninzi = new HashSet<>();
 
 
 }
