@@ -4,7 +4,6 @@ package com.web.projekat2021.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Set;
 
 @Entity
