@@ -11,6 +11,7 @@ public class Trener extends Korisnik {
     @ManyToOne(fetch = FetchType.EAGER)
     private FitnessCentar fitnesscentar;
 
+    //trener drzi vise treninga
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> treninziTrenera = new HashSet<>();
 

@@ -28,10 +28,10 @@ public class FitnessCentar implements Serializable {
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> treneri = new HashSet<>();
 
-    //u jednom fitnes centru nalazi se vise sala, jedna sala nalazi se samo u jednom fitnes centru
+
+    //u jednom fitnes centru nalazi se vise sala
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> sale = new HashSet<>();
-
 
     @ManyToMany
     @JoinTable(name = "raspored_treninga",

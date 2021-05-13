@@ -31,15 +31,15 @@ public class Trening implements Serializable {
     @ManyToMany(mappedBy = "treninzi")
     private Set<FitnessCentar> fitnesCentri = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    // jedan trening moze da odradi vise clanova
+    @ManyToMany(mappedBy = "odradjeniTreninzi")
     private Set<Clan> clanovi = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "prijavljeni_treninzi",
-            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"))
+    // za jedan trening se moze prijaviti vise clanova
+    @ManyToMany(mappedBy = "prijavljeniTreninzi")
     private Set<Clan> prijavljeniClanovi = new HashSet<>();
 
+    //jedan trening se moze odviti u vise sala
     @ManyToMany
     @JoinTable(name = "trening_odrzavanje_sala",
             joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
