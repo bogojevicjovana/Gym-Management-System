@@ -35,6 +35,8 @@ public class Trening implements Serializable {
     @OneToMany(mappedBy = "trening")
     private Set<Termin> treningTermini = new HashSet<>();
 
+    @OneToMany(mappedBy = "trening")
+    private Set<OdradjeniTrening> odradjeniTreninzi = new HashSet<>();
 
     public Long getId() {
         return id;

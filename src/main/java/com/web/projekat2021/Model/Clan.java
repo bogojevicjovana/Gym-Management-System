@@ -14,7 +14,7 @@ public class Clan extends Korisnik{
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> prijavljeniTreninzi = new HashSet<>();
 
-
-
+    @OneToMany(mappedBy = "clan")
+    private Set<OdradjeniTrening> odraljeniTreninziClana = new HashSet<>();
 
 }
