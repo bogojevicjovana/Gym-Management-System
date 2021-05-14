@@ -15,10 +15,10 @@ public class Termin implements Serializable {
     private Long id;
 
     @Column
-    private Date datum;
+    private String datum;
 
     @Column
-    private Time vreme;
+    private String vreme;
 
     @Column
     private String cena;
