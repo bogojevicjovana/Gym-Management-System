@@ -17,12 +17,3 @@ VALUES ('petar.petrovic', 'sifra12', 'Petar', 'Petrovic', 'Trener', 003816741775
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id)
 VALUES ('ivana.petkovic', 'sifr125', 'Ivana', 'Petkovic', 'Trener', 00381674124545, '22.04.1996.', 'petkovicivana@gmail.com', true, 'trener', 2);
 
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Power Pilates', 'akcenat na disanju i tehnici', 'Pilates', '60min', 1);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat Burn', 'trening visokog intenziteta', 'Aerobni', '80min', 2);
-
-INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (50, 'sala 1', 1);
-
-INSERT INTO prijavljeni_treninzi(korisnik_id, trening_id) VALUES (2, 1);
-
-INSERT INTO odradjeni_treninzi(korisnik_id, trening_id) VALUES (3, 2);
-

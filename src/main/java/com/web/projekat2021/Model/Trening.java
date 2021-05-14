@@ -28,23 +28,13 @@ public class Trening implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Trener trener;
 
-    @ManyToMany(mappedBy = "treninzi")
-    private Set<FitnessCentar> fitnesCentri = new HashSet<>();
-
-    // jedan trening moze da odradi vise clanova
-    @ManyToMany(mappedBy = "odradjeniTreninzi")
-    private Set<Clan> clanovi = new HashSet<>();
-
     // za jedan trening se moze prijaviti vise clanova
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
     private Set<Clan> prijavljeniClanovi = new HashSet<>();
 
-    //jedan trening se moze odviti u vise sala
-    @ManyToMany
-    @JoinTable(name = "trening_odrzavanje_sala",
-            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"))
-    private Set<Sala> listaSalaTreninga = new HashSet<>();
+    @OneToMany(mappedBy = "trening")
+    private Set<Termin> treningTermini = new HashSet<>();
+
 
     public Long getId() {
         return id;

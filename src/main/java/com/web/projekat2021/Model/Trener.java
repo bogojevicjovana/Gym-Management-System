@@ -8,6 +8,9 @@ import java.util.Set;
 @DiscriminatorValue("trener")
 public class Trener extends Korisnik {
 
+
+    private Float prosecnaOcena;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private FitnessCentar fitnesscentar;
 

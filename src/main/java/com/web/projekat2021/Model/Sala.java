@@ -19,13 +19,15 @@ public class Sala implements Serializable {
     private String oznaka;
 
     //sala pripada samo jednom fitnes centru
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fitnesscentar_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private FitnessCentar fitnesscentar;
 
-    //u jednoj sali se moze odviti vise treninga
-    @ManyToMany(mappedBy = "listaSalaTreninga")
-    private Set<Trening> listaTreninga = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "raspored_sala_termin",
+            joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+    private Set<Termin> terminiSala = new HashSet<>();
+
 
     public Long getId() {
         return id;

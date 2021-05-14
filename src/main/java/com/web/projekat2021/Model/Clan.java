@@ -7,14 +7,6 @@ import java.util.Set;
 @DiscriminatorValue("clan")
 public class Clan extends Korisnik{
 
-    //jedan clan moze da odradi vise treninga
-    @ManyToMany
-    @JoinTable(name = "odradjeni_treninzi",
-            joinColumns = @JoinColumn(name = "korisnik_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> odradjeniTreninzi = new HashSet<>();
-
-
     //vise clanova se moze prijaviti za jedan trening
     @ManyToMany
     @JoinTable(name = "prijavljeni_treninzi",
