@@ -18,10 +18,11 @@ public class Sala implements Serializable {
     @Column
     private String oznaka;
 
-    //sala pripada samo jednom fitnes centru
+    //fitnes centar u kom se nalazi sala
     @ManyToOne(fetch = FetchType.LAZY)
     private FitnessCentar fitnesscentar;
 
+    // u jednoj sali se moze odrzati vise treninga u razlicitim terminima
     @ManyToMany
     @JoinTable(name = "raspored_sala_termin",
             joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),

@@ -8,9 +8,9 @@ import java.util.Set;
 @DiscriminatorValue("trener")
 public class Trener extends Korisnik {
 
-
     private Float prosecnaOcena;
 
+    // fitnes centar u kom radi trener
     @ManyToOne(fetch = FetchType.EAGER)
     private FitnessCentar fitnesscentar;
 

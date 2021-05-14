@@ -34,6 +34,8 @@ INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, 
 
 INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9.5, 2, 1);
 INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9, 2, 2);
+INSERT INTO ODRADJENI_TRENING(clan_id, trening_id) VALUES (2, 2);
+
 
 INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (2, 1);
 

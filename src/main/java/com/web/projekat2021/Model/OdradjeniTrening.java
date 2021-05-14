@@ -19,4 +19,28 @@ public class OdradjeniTrening implements Serializable {
     @ManyToOne
     private Trening trening;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Float getOcena() {
+        return ocena;
+    }
+
+    public void setOcena(Float ocena) {
+        this.ocena = ocena;
+    }
+
+    public Trening getTrening() {
+        return trening;
+    }
+
+    public void setTrening(Trening trening) {
+        this.trening = trening;
+    }
+
 }

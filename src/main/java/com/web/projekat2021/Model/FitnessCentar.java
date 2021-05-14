@@ -28,11 +28,11 @@ public class FitnessCentar implements Serializable {
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> treneri = new HashSet<>();
 
-
     //u jednom fitnes centru nalazi se vise sala
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> sale = new HashSet<>();
 
+    // u fitnes centru odrzavaju se treninzi u vise termina
     @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> termini = new HashSet<>();
 
@@ -76,4 +76,17 @@ public class FitnessCentar implements Serializable {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "FitnessCentar{" +
+                "id=" + id +
+                ", naziv='" + naziv + '\'' +
+                ", adresa='" + adresa + '\'' +
+                ", brTelefonaCentrale='" + brTelefonaCentrale + '\'' +
+                ", email='" + email + '\'' +
+                ", treneri=" + treneri +
+                ", sale=" + sale +
+                ", termini=" + termini +
+                '}';
+    }
 }

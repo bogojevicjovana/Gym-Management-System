@@ -25,6 +25,7 @@ public class Trening implements Serializable {
     @Column
     private String trajanje;
 
+    // trener koji odrzava trening
     @ManyToOne(fetch = FetchType.EAGER)
     private Trener trener;
 
