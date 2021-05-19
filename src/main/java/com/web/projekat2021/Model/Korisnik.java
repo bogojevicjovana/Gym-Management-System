@@ -2,6 +2,7 @@ package com.web.projekat2021.Model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

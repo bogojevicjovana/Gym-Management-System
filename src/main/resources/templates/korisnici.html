@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Korisnici</title>
+    <meta charset="utf-8"/>
+
+</head>
+<body>
+<h1>Korisnici</h1>
+<br><br>
+<table id="korisnici">
+    <tr>
+        <th>Id</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+    </tr>
+    <tr th:each="korisnik : ${korisnici}">
+        <td th:text="${korisnik.id}"></td>
+        <td th:text="${korisnik.ime}"></td>
+        <td th:text="${korisnik.prezime}"></td>
+    </tr>
+</table>
+</body>
+</html>

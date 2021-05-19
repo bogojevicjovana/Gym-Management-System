@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Korisnici</title>
+    <link rel="stylesheet" href="/css/form.css"}>
+</head>
+<script src="/css/form.js"></script>
+<body>
+<div class="user">
+    <header class="user__header">
+        <h1 class="user__title">Registrujte se</h1>
+    </header>
+
+    <form th:action="@{/save-korisnika}" th:object="${korisnik}" method="post" style="border:1px solid #ccc" class="form">
+        <div class="form__group">
+            <input type="text" placeholder="Ime:" class="form__input" th:field="*{ime}" />
+        </div>
+
+        <div class="form__group">
+            <input type="text" placeholder="Prezime:" class="form__input" th:field="*{prezime}" />
+        </div>
+
+        <div class="form__group">
+            <input type="text" placeholder="Korisnicko ime:" class="form__input" th:field="*{korisnickoIme}" />
+        </div>
+
+        <div class="form__group">
+            <input type="number" placeholder="Kontakt:" class="form__input" th:field="*{kontaktTelefon}" />
+        </div>
+
+        <div class="form__group">
+            <input type="date" placeholder="Datum rodjenja:" class="form__input" th:field="*{datumRodjenja}" />
+        </div>
+
+
+        <div class="form__group">
+            <input type="email" placeholder="Email:" class="form__input" th:field="*{email}"  />
+        </div>
+
+        <div class="form__group">
+            <input type="password" placeholder="Password:" class="form__input" th:field="*{lozinka}" />
+        </div>
+        <button input type="submit" class="btn">Register</button>
+    </form>
+</div>
+</body>
+</html>
