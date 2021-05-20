@@ -13,5 +13,5 @@ public interface KorisnikService {
 
     List<Korisnik> pronadjiSve();
 
-    Korisnik create(Korisnik korisnik) throws Exception;
+
 }

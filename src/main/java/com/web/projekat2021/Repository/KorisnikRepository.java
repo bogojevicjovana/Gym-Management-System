@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
 
-
+    Korisnik findByKorisnickoImeAndLozinka(String korisnicko, String lozinka);
 
 
 

@@ -26,20 +26,6 @@ public class KorisnikController {
         return "odaberiNalog.html";
     }
 
-    @GetMapping("/dodaj")
-    public String dodajKorisnika(Model model){
-        Korisnik korisnik = new Korisnik();
-        model.addAttribute("korisnik", korisnik);
-        return "dodaj-korisnika.html";
-    }
-
-
-    @PostMapping("/save-korisnika")
-    public String saveKorisnik(@ModelAttribute Korisnik korisnik, BindingResult errors, Model model) throws Exception {
-        this.korisnikService.create(korisnik);
-
-        return "redirect:/";
-    }
 
     @GetMapping("/korisnici")
     public String getEmployees(Model model) {
@@ -47,7 +33,6 @@ public class KorisnikController {
         model.addAttribute("korisnici", listaKorisnika);
         return "korisnici.html";
     }
-
 
 
 

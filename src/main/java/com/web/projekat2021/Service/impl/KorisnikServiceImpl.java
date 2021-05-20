@@ -22,19 +22,5 @@ public class KorisnikServiceImpl implements KorisnikService {
         return korisnici;
     }
 
-    @Override
-    public Korisnik create(Korisnik korisnik) throws Exception {
-
-        korisnik.setAktivan(true);
-        korisnik.setUloga("clan");
-        Korisnik noviKorisnik = this.korisnikRepository.save(korisnik);
-
-        return noviKorisnik;
-    }
-
-
-
-
-
 
 }

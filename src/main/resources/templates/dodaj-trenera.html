@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Korisnici</title>
+    <title>Registracija trenera fitness centra</title>
     <link rel="stylesheet" href="/css/form.css"}>
 </head>
 <script src="/css/form.js"></script>
 <body>
 <div class="user">
     <header class="user__header">
-        <h1 class="user__title">Registrujte se</h1>
+        <h1 class="user__title">Postani trener u fitness centru!</h1>
     </header>
 
-    <form th:action="@{/save-korisnika}" th:object="${korisnik}" method="post" style="border:1px solid #ccc" class="form">
+    <form th:action="@{/save-trener}" th:object="${trener}" method="post" style="border:1px solid #ccc" class="form">
         <div class="form__group">
             <input type="text" placeholder="Ime:" class="form__input" th:field="*{ime}" />
         </div>
