@@ -1,46 +1,23 @@
-package com.web.projekat2021.Model;
+package com.web.projekat2021.Model.DTO;
 
+public class KorisnikDTO {
 
-import javax.persistence.*;
-import java.io.Serializable;
-
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tip")
-public class Korisnik {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column
     private String korisnickoIme;
-
-    @Column
     private String lozinka;
-
-    @Column
     private String ime;
-
-    @Column
     private String prezime;
-
-    @Column
     private String uloga;
-
-    @Column
     private String kontaktTelefon;
-
-    @Column
     private String datumRodjenja;
-
-    @Column
     private String email;
+    private Boolean aktivan;
 
-    @Column
-    private Boolean aktivan; //true ako je aktivan, false ako nije
+    public KorisnikDTO(){
+    }
 
-    public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String kontaktTelefon, String datumRodjenja, String email, Boolean aktivan) {
+    public KorisnikDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String kontaktTelefon, String datumRodjenja, String email, Boolean aktivan) {
+        this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -51,8 +28,6 @@ public class Korisnik {
         this.email = email;
         this.aktivan = aktivan;
     }
-
-    public Korisnik(){}
 
     public Long getId() {
         return id;
@@ -133,21 +108,4 @@ public class Korisnik {
     public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
     }
-
-    @Override
-    public String toString() {
-        return "Korisnik{" +
-                "id=" + id +
-                ", korisnickoIme='" + korisnickoIme + '\'' +
-                ", lozinka='" + lozinka + '\'' +
-                ", ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
-                ", uloga='" + uloga + '\'' +
-                ", kontaktTelefon='" + kontaktTelefon + '\'' +
-                ", datumRodjenja='" + datumRodjenja + '\'' +
-                ", email='" + email + '\'' +
-                ", aktivan=" + aktivan +
-                '}';
-    }
-
 }

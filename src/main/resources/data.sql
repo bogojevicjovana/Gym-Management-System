@@ -12,10 +12,10 @@ INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('
 INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('XGym', 'Danila Kisa 18, Novi Sad', 00381123855457, 'xgym@gmail.com');
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
-VALUES ('petar.petrovic', 'sifra12', 'Petar', 'Petrovic', 'Trener', 00381674177545, '22.04.1995.', 'petrovicpe@gmail.com', true, 'trener', 1, 9.5);
+VALUES ('petar.petrovic', 'sifra12', 'Petar', 'Petrovic', 'Trener', 00381674177545, '22.04.1995.', 'petrovicpe@gmail.com', false, 'trener', 1, 9.5);
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
-VALUES ('ivana.petkovic', 'sifr125', 'Ivana', 'Petkovic', 'Trener', 00381674124545, '22.04.1996.', 'petkovicivana@gmail.com', true, 'trener', 2, 8.7);
+VALUES ('ivana.petkovic', 'sifr125', 'Ivana', 'Petkovic', 'Trener', 00381674124545, '22.04.1996.', 'petkovicivana@gmail.com', false, 'trener', 2, 8.7);
 
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (50, 'SALA a', 1);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (60, 'SALA b', 1);

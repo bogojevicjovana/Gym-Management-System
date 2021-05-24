@@ -10,16 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClanServiceImpl implements ClanService {
 
-    @Autowired
-    private ClanRepository clanRepository;
 
-    @Override
-    public Clan createClan(Clan clan) throws Exception {
 
-        clan.setAktivan(true);
-        clan.setUloga("clan");
-        Clan noviClan = this.clanRepository.save(clan);
-
-        return noviClan;
-    }
 }

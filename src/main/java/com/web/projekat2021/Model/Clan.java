@@ -17,4 +17,11 @@ public class Clan extends Korisnik{
     @OneToMany(mappedBy = "clan")
     private Set<OdradjeniTrening> odraljeniTreninziClana = new HashSet<>();
 
+    public Clan(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String kontaktTelefon, String datumRodjenja, String email, Boolean aktivan, Set<Trening> prijavljeniTreninzi, Set<OdradjeniTrening> odraljeniTreninziClana) {
+        super(korisnickoIme, lozinka, ime, prezime, uloga, kontaktTelefon, datumRodjenja, email, aktivan);
+        this.prijavljeniTreninzi = prijavljeniTreninzi;
+        this.odraljeniTreninziClana = odraljeniTreninziClana;
+    }
+
+    public Clan(){}
 }

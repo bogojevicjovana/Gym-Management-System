@@ -10,17 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TrenerServiceImpl implements TrenerService {
 
-    @Autowired
-    private TrenerRepository trenerRepository;
 
-    @Override
-    public Trener createTrener(Trener trener) throws Exception {
 
-        trener.setAktivan(false);
-        trener.setUloga("clan");
-        Trener noviTrener = this.trenerRepository.save(trener);
-
-        return noviTrener;
-    }
 
 }

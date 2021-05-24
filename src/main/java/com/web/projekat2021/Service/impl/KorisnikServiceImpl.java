@@ -13,14 +13,42 @@ import java.util.List;
 @Service
 public class KorisnikServiceImpl implements KorisnikService {
 
-    @Autowired
-    private KorisnikRepository korisnikRepository;
+    private final KorisnikRepository korisnikRepository;
 
-    @Override
-    public List<Korisnik> pronadjiSve(){
-        List<Korisnik> korisnici = this.korisnikRepository.findAll();
-        return korisnici;
+    @Autowired
+    public KorisnikServiceImpl(KorisnikRepository korisnikRepository) {
+        this.korisnikRepository = korisnikRepository;
     }
 
+    @Override
+    public Korisnik login(String korisnickoIme, String lozinka) throws Exception {
 
+        Korisnik korisnik = this.korisnikRepository.findByKorisnickoImeAndLozinka(korisnickoIme, lozinka);
+
+        Boolean v = korisnik.getAktivan();
+
+
+
+        if(korisnik == null) {
+            throw new Exception("Unijeli ste pogresne podatke, pokušajte ponovo");
+        } else if (v == false){
+            throw new Exception("Vas profil nije aktiviran!");
+        } else {
+            return korisnik;
+        }
+    }
+
+    @Override
+    public Korisnik create(Korisnik korisnik) throws Exception {
+        if(korisnik.getId() != null) {
+            throw new Exception("ID must be null!");
+        }
+
+        Korisnik korisnik1 = korisnikRepository.findOneByKorisnickoIme(korisnik.getKorisnickoIme());
+        if(korisnik1 != null) {
+            throw new Exception("Korisnicko ime vec postoji!");
+        }
+
+        return this.korisnikRepository.save(korisnik);
+    }
 }

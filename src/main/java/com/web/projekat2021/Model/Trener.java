@@ -18,4 +18,10 @@ public class Trener extends Korisnik {
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> treninziTrenera = new HashSet<>();
 
+
+    public Trener(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String kontaktTelefon, String datumRodjenja, String email, Boolean aktivan) {
+        super(korisnickoIme, lozinka, ime, prezime, uloga, kontaktTelefon, datumRodjenja, email, aktivan);
+    }
+
+    public Trener(){}
 }

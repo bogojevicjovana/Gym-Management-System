@@ -1,37 +1,52 @@
 package com.web.projekat2021.Controller;
 
+import com.web.projekat2021.Model.DTO.KorisnikDTO;
+import com.web.projekat2021.Model.DTO.LoginKorisnikDTO;
 import com.web.projekat2021.Model.Korisnik;
 import com.web.projekat2021.Service.KorisnikService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping(value="/api/korisnici")
 public class KorisnikController {
 
+    private final KorisnikService korisnikService;
+
     @Autowired
-    private KorisnikService korisnikService;
-
-    @GetMapping(value = "/")
-    public String welcome() {
-        return "home.html";
-    }
-
-    @GetMapping(value = "/registracija-korisnika")
-    public String odabirNaloga() {
-        return "odaberiNalog.html";
+    public KorisnikController(KorisnikService korisnikService) {
+        this.korisnikService = korisnikService;
     }
 
 
-    @GetMapping("/korisnici")
-    public String getEmployees(Model model) {
-        List<Korisnik> listaKorisnika = this.korisnikService.pronadjiSve();
-        model.addAttribute("korisnici", listaKorisnika);
-        return "korisnici.html";
+    @PostMapping(
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<KorisnikDTO> login(@RequestBody LoginKorisnikDTO korisnikDTO) throws Exception{
+
+        Korisnik korisnik = korisnikService.login(korisnikDTO.getKorisnickoIme(), korisnikDTO.getLozinka());
+        KorisnikDTO ulogovanKorisnik = new KorisnikDTO();
+
+        if (korisnik != null) {
+
+            ulogovanKorisnik = new KorisnikDTO(korisnik.getId(),
+                    korisnik.getKorisnickoIme(), korisnik.getLozinka(),
+                    korisnik.getIme(), korisnik.getPrezime(), korisnik.getUloga(),
+                    korisnik.getKontaktTelefon(), korisnik.getDatumRodjenja(),
+                    korisnik.getEmail(), korisnik.getAktivan());
+            return new ResponseEntity<>(ulogovanKorisnik, HttpStatus.OK);
+
+        }
+        return new ResponseEntity<>(ulogovanKorisnik, HttpStatus.BAD_REQUEST);
     }
 
 
