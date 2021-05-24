@@ -1,0 +1,175 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    list-style-type: none;
+    background-color: #d8afaf;
+    overflow: hidden;
+    text-align: right;
+    padding: 0;
+    margin-bottom: 3em;
+}
+
+.nav {
+    float: right;
+    font-family: "Tahoma", serif;
+}
+
+.nav a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: black;
+    background-color: #d8afaf;
+}
+
+.nav a:hover {
+    background-color: grey;
+}
+
+.li a:hover {
+    background-color: grey;
+}
+
+.dropdown-hidden {
+    text-align: left;
+    display: none;
+    z-index: 1;
+    position: absolute;
+    background-color: grey;
+}
+
+.dropdown:hover .dropdown-hidden {
+    display: block;
+}
+
+#logo {
+    height: 2em;
+    width: auto;
+    padding-left: 1em;
+    float: left;
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
+    margin-top: 1em;
+    font-family: "Impact";
+}
+
+#search {
+    float: right;
+    font-size: 1.2em;
+    margin: 0.55em;
+    margin-right: 0;
+}
+
+#searchImg {
+    float: right;
+    height: 2em;
+    padding-top: 0.5em;
+    padding: 0.75;
+}
+
+figure {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    background-color: white;
+}
+
+figcaption {
+    margin: 1em;
+}
+
+figcaption h2 {
+    display: inline;
+}
+
+figcaption h2:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.knjiga {
+    width: 70%;
+    height: auto;
+}
+
+.blok {
+    position: relative;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+}
+
+.tekst {
+    position: absolute;
+    background-color: grey;
+    opacity: 0.8;
+    padding-top: 1em;
+    padding-bottom: 100%;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    font-size: 0.9em;
+    font-family: "Times New Roman", "Helvetica", serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.hide {
+    display: none;
+}
+
+.inline {
+    display: inline;
+}
+
+#table {
+    width: 100%;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+h3 {
+    color: #4CAF50;
+}
+
+#employees th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#employees td, #treninzi th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#employees tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#employees tr:hover {
+    background-color: #ddd;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}

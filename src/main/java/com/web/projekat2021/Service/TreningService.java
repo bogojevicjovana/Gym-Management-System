@@ -9,5 +9,6 @@ import java.util.List;
 @Service
 public interface TreningService {
 
+    List<Trening> listaTreninga();
 
 }
