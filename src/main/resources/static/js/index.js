@@ -8,7 +8,6 @@ function formToJSON(id, naziv, opis, tipTreninga, trajanje){
     })
 }
 
-
 $(document).ready(function () {
     $.ajax({
         type: "GET",
@@ -23,7 +22,6 @@ $(document).ready(function () {
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
                 row += "<td>" + data[i]['trajanje'] + "</td>";
-
                 $('#treninzi').append(row);
             }
         },

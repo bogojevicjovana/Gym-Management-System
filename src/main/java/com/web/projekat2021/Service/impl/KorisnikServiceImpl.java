@@ -38,17 +38,4 @@ public class KorisnikServiceImpl implements KorisnikService {
         }
     }
 
-    @Override
-    public Korisnik create(Korisnik korisnik) throws Exception {
-        if(korisnik.getId() != null) {
-            throw new Exception("ID must be null!");
-        }
-
-        Korisnik korisnik1 = korisnikRepository.findOneByKorisnickoIme(korisnik.getKorisnickoIme());
-        if(korisnik1 != null) {
-            throw new Exception("Korisnicko ime vec postoji!");
-        }
-
-        return this.korisnikRepository.save(korisnik);
-    }
 }

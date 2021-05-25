@@ -76,6 +76,8 @@ public class FitnessCentar implements Serializable {
         this.email = email;
     }
 
+    public FitnessCentar(){}
+
     @Override
     public String toString() {
         return "FitnessCentar{" +
@@ -88,5 +90,12 @@ public class FitnessCentar implements Serializable {
                 ", sale=" + sale +
                 ", termini=" + termini +
                 '}';
+    }
+
+    public FitnessCentar(String naziv, String adresa, String brTelefonaCentrale, String email) {
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.brTelefonaCentrale = brTelefonaCentrale;
+        this.email = email;
     }
 }

@@ -1,6 +1,4 @@
 $(document).on("submit", "form", function(event){
-
-    // da se izbegne izvrsavanja pravog submita forme
     event.preventDefault();
 
     var korisnickoIme = $("#korisnickoIme").val();
@@ -27,16 +25,10 @@ $(document).on("submit", "form", function(event){
             localStorage.setItem('datumRodjenja', data['datumRodjenja']);
             localStorage.setItem('email', data['email']);
             localStorage.setItem('aktivan', data['aktivan']);
-
-
-            var ulogaUlogovanogKorisnika = localStorage.getItem('uloga');
-            console.log("Ovo je postavljena uloga ulogovanog korisnika:" + ulogaUlogovanogKorisnika);
-            alert("Uloga " + korisnickoIme + " je " + ulogaUlogovanogKorisnika );
-            window.location.href = "home.html";
         },
         error: function (data) {
             console.log(data);
-            alert("Greska");
+            alert("Vas profil nije aktiviran");
         }
     });
 });

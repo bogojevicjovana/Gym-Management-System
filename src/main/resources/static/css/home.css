@@ -5,7 +5,7 @@ body {
 
 .navbar {
     list-style-type: none;
-    background-color: #d8afaf;
+    background-color: #008080;
     overflow: hidden;
     text-align: right;
     padding: 0;
@@ -22,15 +22,15 @@ body {
     padding: 1em;
     text-decoration: none;
     color: black;
-    background-color: #d8afaf;
+    background-color: #008080;
 }
 
 .nav a:hover {
-    background-color: grey;
+    background-color: #008080;
 }
 
 .li a:hover {
-    background-color: grey;
+    background-color: #008080;
 }
 
 .dropdown-hidden {
@@ -91,55 +91,13 @@ figcaption h2:hover {
     cursor: pointer;
 }
 
-.knjiga {
-    width: 70%;
-    height: auto;
-}
 
-.blok {
-    position: relative;
-    text-align: center;
-    color: black;
-    overflow: hidden;
-}
-
-.tekst {
-    position: absolute;
-    background-color: grey;
-    opacity: 0.8;
-    padding-top: 1em;
-    padding-bottom: 100%;
-    top: 0;
-    left: 15%;
-    right: 15%;
-    font-size: 0.9em;
-    font-family: "Times New Roman", "Helvetica", serif;
-}
 
 .grid {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
-.hide {
-    display: none;
-}
-
-.inline {
-    display: inline;
-}
-
-#table {
-    width: 100%;
-}
-
-h1 {
-    color: #4CAF50;
-}
-
-h3 {
-    color: #4CAF50;
-}
 
 #employees th {
     padding-top: 12px;

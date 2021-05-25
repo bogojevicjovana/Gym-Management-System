@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public interface KorisnikService {
 
-    Korisnik create(Korisnik korisnik) throws Exception;
 
     Korisnik login(String korisnicko, String lozinka) throws Exception;
 

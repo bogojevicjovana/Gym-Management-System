@@ -25,7 +25,6 @@ public class TreningServiceImpl implements TreningService {
 
             List<Trening> treninzi = this.treningRepository.findAll();
             return treninzi;
-
     }
 
 
