@@ -7,6 +7,7 @@ VALUES ('ana.ivanovic', 'sifra123', 'Ana', 'Ivanovic', 'Clan', 00381644877222, '
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
 VALUES ('milica.milic', 'sifra13', 'Milica', 'Milic', 'Clan', 00381644547545, '22.05.2000.', 'milicamilic@gmail.com', true, 'clan');
 
+
 INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('FitGym', 'Mise Dimitrijevica 18, Novi Sad', 00381665855457, 'fitgym@gmail.com');
 
 INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('XGym', 'Danila Kisa 18, Novi Sad', 00381123855457, 'xgym@gmail.com');
@@ -45,3 +46,5 @@ INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (2, 1);
 
 INSERT INTO RASPORED_SALA_TERMIN(sala_id, termin_id) VALUES (1, 1);
 
+INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
+VALUES ('sanja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'sanjai@gmail.com', true, 'trener');

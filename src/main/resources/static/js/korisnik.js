@@ -25,6 +25,9 @@ $(document).on("submit", "form", function(event){
             localStorage.setItem('datumRodjenja', data['datumRodjenja']);
             localStorage.setItem('email', data['email']);
             localStorage.setItem('aktivan', data['aktivan']);
+
+
+            window.location.href = "home.html";
         },
         error: function (data) {
             console.log(data);

@@ -28,6 +28,17 @@ public class TrenerDTO {
         this.aktivan = aktivan;
     }
 
+
+    public TrenerDTO(String ime, String prezime, String korisnickoIme, String datumRodjenja, String kontaktTelefon, String email) {
+        this.korisnickoIme = korisnickoIme;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.kontaktTelefon = kontaktTelefon;
+        this.datumRodjenja = datumRodjenja;
+        this.email = email;
+
+    }
+
     public Long getId() {
         return id;
     }

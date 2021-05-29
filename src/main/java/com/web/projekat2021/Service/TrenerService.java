@@ -3,9 +3,12 @@ package com.web.projekat2021.Service;
 import com.web.projekat2021.Model.Trener;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface TrenerService {
 
     Trener create(Trener trener) throws Exception;
 
+    List<Trener> listaTrenera();
 }

@@ -8,6 +8,8 @@ import com.web.projekat2021.Service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TrenerServiceImpl implements TrenerService {
 
@@ -35,6 +37,9 @@ public class TrenerServiceImpl implements TrenerService {
         return novi;
     }
 
-
+    public List<Trener> listaTrenera() {
+        List<Trener> listaTrenera = this.trenerRepository.findByAktivanIsFalse();
+        return listaTrenera;
+    }
 
 }
