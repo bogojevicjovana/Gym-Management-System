@@ -16,9 +16,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 @RestController
 @RequestMapping(value="/api/treneri")
@@ -51,19 +53,42 @@ public class TrenerController {
         return new ResponseEntity<>(newTrenerDTO, HttpStatus.CREATED);
     }
 
+    //odobravanje registracije
+    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TrenerDTO> odobriTrenera(@PathVariable Long id, @RequestBody TrenerDTO trenerDTO) throws Exception{
+
+        Trener trener = new Trener(trenerDTO.getKorisnickoIme(), trenerDTO.getLozinka(), trenerDTO.getIme(),
+                trenerDTO.getPrezime(), trenerDTO.getUloga(), trenerDTO.getKontaktTelefon(), trenerDTO.getDatumRodjenja(),
+                trenerDTO.getEmail(), trenerDTO.getAktivan());
+        trener.setId(id);
+
+        Trener noviTrener = trenerService.update(trener);
+
+        TrenerDTO odobrenTrenerDTO = new TrenerDTO(noviTrener.getId(), noviTrener.getKorisnickoIme(), noviTrener.getLozinka(),
+                noviTrener.getIme(), noviTrener.getPrezime(), noviTrener.getUloga(), noviTrener.getKontaktTelefon(), noviTrener.getDatumRodjenja(),
+                noviTrener.getEmail(), noviTrener.getAktivan());
+
+        return new ResponseEntity<>(odobrenTrenerDTO, HttpStatus.OK);
+    }
+
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/dobavi-trenere")
     public ResponseEntity<List<TrenerDTO>> dobaviTrenere(){
 
         List<Trener> listaTrenera = this.trenerService.listaTrenera();
         List<TrenerDTO> trenerDTOs = new ArrayList<>();
 
-        for(Trener trener: listaTrenera){
-            TrenerDTO trenerDTO = new TrenerDTO(trener.getIme(), trener.getPrezime(), trener.getKorisnickoIme(), trener.getDatumRodjenja(), trener.getKontaktTelefon(), trener.getEmail());
-            trenerDTOs.add(trenerDTO);
+        for(Trener noviTrener: listaTrenera){
+            TrenerDTO odobrenTrenerDTO = new TrenerDTO(noviTrener.getId(), noviTrener.getKorisnickoIme(), noviTrener.getLozinka(),
+                    noviTrener.getIme(), noviTrener.getPrezime(), noviTrener.getUloga(), noviTrener.getKontaktTelefon(), noviTrener.getDatumRodjenja(),
+                    noviTrener.getEmail(), noviTrener.getAktivan());
+            trenerDTOs.add(odobrenTrenerDTO);
         }
 
         return new ResponseEntity<>(trenerDTOs, HttpStatus.OK);
     }
+
 
 
 

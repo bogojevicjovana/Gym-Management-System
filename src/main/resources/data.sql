@@ -1,5 +1,5 @@
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
-VALUES ('ivan.ivanovic', 'sifra123', 'Ivan', 'Ivanovic', 'Admin', 00381644877545, '22.04.1998.', 'ivanivanovic@gmail.com', true, 'admin');
+VALUES ('ivan.ivanovic', 'sif', 'Ivan', 'Ivanovic', 'Admin', 00381644877545, '22.04.1998.', 'ivanivanovic@gmail.com', true, 'admin');
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
 VALUES ('ana.ivanovic', 'sifra123', 'Ana', 'Ivanovic', 'Clan', 00381644877222, '22.04.1994.', 'anaivanovic@gmail.com', true, 'clan');
@@ -28,8 +28,6 @@ INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fitness Mix', 'nema opisa', '60min', 'Aerobik', 5);
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('YogaTime', 'nema opisa', '70min', 'Yoga', 5);
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('CardioBurn', 'nema opisa', '60min', 'Cardio', 5);
-
-
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
 (10, '2000din', '25.05.2021.', '16:30', 1, 1);

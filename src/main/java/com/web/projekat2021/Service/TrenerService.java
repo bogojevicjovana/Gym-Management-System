@@ -11,4 +11,8 @@ public interface TrenerService {
     Trener create(Trener trener) throws Exception;
 
     List<Trener> listaTrenera();
+
+    Trener findOne(Long id);
+
+    Trener update(Trener trener) throws Exception;
 }

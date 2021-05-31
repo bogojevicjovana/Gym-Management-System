@@ -42,4 +42,22 @@ public class TrenerServiceImpl implements TrenerService {
         return listaTrenera;
     }
 
+    @Override
+    public Trener findOne(Long id){
+        Trener novi = trenerRepository.getOne(id);
+        return novi;
+    }
+
+    @Override
+    public Trener update(Trener trener) throws Exception{
+        Trener trenerUpdate = this.trenerRepository.getOne(trener.getId());
+
+        if(trenerUpdate == null) {
+            throw new Exception("Trener ne postoji!");
+        }
+
+        trenerUpdate.setAktivan(true);
+        Trener nt = this.trenerRepository.saveAndFlush(trenerUpdate);
+        return nt;
+    }
 }

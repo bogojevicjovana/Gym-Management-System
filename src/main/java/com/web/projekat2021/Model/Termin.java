@@ -33,6 +33,7 @@ public class Termin implements Serializable {
     @ManyToMany(mappedBy = "terminiSala")
     private Set<Sala> saleTermin = new HashSet<>();
 
+
     // fitnes centar u kom se odvija termin
     @ManyToOne
     private FitnessCentar fitnessCentar;

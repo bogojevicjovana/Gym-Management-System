@@ -27,8 +27,6 @@ public class KorisnikServiceImpl implements KorisnikService {
 
         Boolean v = korisnik.getAktivan();
 
-
-
         if(korisnik == null) {
             throw new Exception("Unijeli ste pogresne podatke, pokušajte ponovo");
         } else if (v == false){
