@@ -27,5 +27,20 @@ public class TreningServiceImpl implements TreningService {
             return treninzi;
     }
 
+    @Override
+    public List<Trening> sortByNaziv(){
+        return treningRepository.findByOrderByNaziv();
+    }
+
+    @Override
+    public List<Trening> sortByOpis(){
+        return treningRepository.findByOrderByOpis();
+    }
+
+    @Override
+    public List<Trening> sortByTipTreninga(){
+        return treningRepository.findByOrderByTipTreninga();
+    }
+
 
 }

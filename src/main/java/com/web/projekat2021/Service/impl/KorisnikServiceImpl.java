@@ -25,15 +25,17 @@ public class KorisnikServiceImpl implements KorisnikService {
 
         Korisnik korisnik = this.korisnikRepository.findByKorisnickoImeAndLozinka(korisnickoIme, lozinka);
 
+
+        if (korisnik == null){
+            throw new Exception("Unijeli ste pogresne podatke, pokušajte ponovo");
+        }
+
         Boolean v = korisnik.getAktivan();
 
-        if(korisnik == null) {
-            throw new Exception("Unijeli ste pogresne podatke, pokušajte ponovo");
-        } else if (v == false){
+        if (v == false){
             throw new Exception("Vas profil nije aktiviran!");
         } else {
             return korisnik;
         }
     }
-
 }

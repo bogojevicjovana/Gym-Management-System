@@ -4,7 +4,7 @@ $(document).ready(function () {
     var AdminDiv = $(".admin");
 
     ClanDiv.hide();
-    ClanDiv.hide();
+    TrenerDiv.hide();
     AdminDiv.hide();
 
 

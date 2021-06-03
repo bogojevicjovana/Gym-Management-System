@@ -11,4 +11,9 @@ public interface TreningService {
 
     List<Trening> listaTreninga();
 
+    List<Trening> sortByNaziv();
+
+    List<Trening> sortByOpis();
+
+    List<Trening> sortByTipTreninga();
 }

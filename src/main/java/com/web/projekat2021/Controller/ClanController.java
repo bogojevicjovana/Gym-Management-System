@@ -36,7 +36,6 @@ public class ClanController {
                 clanDTO.getPrezime(), clanDTO.getUloga(), clanDTO.getKontaktTelefon(), clanDTO.getDatumRodjenja(),
                 clanDTO.getEmail(), clanDTO.getAktivan());
 
-
         Clan noviClan = clanService.create(clan);
 
         ClanDTO newClanDTO = new ClanDTO(noviClan.getId(), noviClan.getKorisnickoIme(), noviClan.getLozinka(),

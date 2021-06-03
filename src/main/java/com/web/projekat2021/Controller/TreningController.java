@@ -38,4 +38,62 @@ public class TreningController {
 
         return new ResponseEntity<>(treningDTOs, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/sort/naziv/",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TreningDTO>> sortirajTreningePoNazivu(){
+
+        List<Trening> listaTreninga = this.treningService.sortByNaziv();
+
+        List<TreningDTO> listaTreningDTOs = new ArrayList<>();
+
+        for(Trening trening: listaTreninga){
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
+                                                    trening.getTipTreninga(), trening.getTrajanje());
+
+            listaTreningDTOs.add(treningDTO);
+        }
+
+        return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/sort/opis/",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TreningDTO>> sortirajTreningePoOpisu(){
+
+        List<Trening> listaTreninga = this.treningService.sortByOpis();
+
+        List<TreningDTO> listaTreningDTOs = new ArrayList<>();
+
+        for(Trening trening: listaTreninga){
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
+                    trening.getTipTreninga(), trening.getTrajanje());
+
+            listaTreningDTOs.add(treningDTO);
+        }
+
+        return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/sort/tiptreninga/",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TreningDTO>> sortirajTreningePoTipuTreninga(){
+
+        List<Trening> listaTreninga = this.treningService.sortByTipTreninga();
+
+        List<TreningDTO> listaTreningDTOs = new ArrayList<>();
+
+        for(Trening trening: listaTreninga){
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
+                    trening.getTipTreninga(), trening.getTrajanje());
+
+            listaTreningDTOs.add(treningDTO);
+        }
+
+        return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
+    }
+
+
+
+
 }

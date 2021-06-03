@@ -27,7 +27,7 @@ public class FitnessCentarController {
             value = "/dodaj-fitness-centar",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FitnessCentarDTO> registracija(@RequestBody FitnessCentarDTO fcDTO) throws Exception {
+    public ResponseEntity<FitnessCentarDTO> registracijaFitnessCentra(@RequestBody FitnessCentarDTO fcDTO) throws Exception {
 
         FitnessCentar noviCentar = new FitnessCentar(fcDTO.getNaziv(), fcDTO.getAdresa(), fcDTO.getBrTelefonaCentrale(),
                 fcDTO.getEmail());

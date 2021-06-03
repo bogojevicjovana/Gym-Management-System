@@ -31,7 +31,7 @@ $(document).on("submit", "form", function(event){
         },
         error: function (data) {
             console.log(data);
-            alert("Vas profil nije aktiviran");
+            alert("Vas profil nije aktiviran ili ste uneli pogresne podatke!");
         }
     });
 });
