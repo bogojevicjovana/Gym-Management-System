@@ -65,7 +65,7 @@ $(document).on('click', '.btnOdobriTrenera', function () {
                                 trenerEm, trenerAktivan, trenerUloga, trenerLoz);
 
     $.ajax({
-            type: "POST",
+            type: "PUT",
             url: "http://localhost:8080/api/treneri/" + trenerId,
             dataType: "json",
             contentType: "application/json",

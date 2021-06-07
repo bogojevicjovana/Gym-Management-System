@@ -93,7 +93,29 @@ public class TreningController {
         return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
     }
 
+    @PostMapping(value="/pretragaPoNazivu", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> getTreningByNaziv(@RequestBody Trening treningDTO) {
 
+        List<Trening> treninzi = treningService.findByNazivTr(treningDTO.getNaziv());
+
+        return new ResponseEntity<>(treninzi, HttpStatus.OK);
+    }
+
+    @PostMapping(value="/pretragaPoTipu", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> getTreningByTip(@RequestBody Trening treningDTO) {
+
+        List<Trening> treninzi = treningService.findByTipTr(treningDTO.getTipTreninga());
+
+        return new ResponseEntity<>(treninzi, HttpStatus.OK);
+    }
+
+    @PostMapping(value="/pretragaPoOpis", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> getTreningByOpis(@RequestBody Trening treningDTO) {
+
+        List<Trening> treninzi = treningService.findByOpisTr(treningDTO.getOpis());
+
+        return new ResponseEntity<>(treninzi, HttpStatus.OK);
+    }
 
 
 }

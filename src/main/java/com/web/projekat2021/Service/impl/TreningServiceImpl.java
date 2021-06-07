@@ -42,5 +42,18 @@ public class TreningServiceImpl implements TreningService {
         return treningRepository.findByOrderByTipTreninga();
     }
 
+    @Override
+    public List<Trening> findByNazivTr(String naziv) {
+        return treningRepository.findByNazivIgnoreCaseContaining(naziv);
+    }
 
+    @Override
+    public List<Trening> findByTipTr(String tipTreninga) {
+        return treningRepository.findByTipTreningaIgnoreCaseContaining(tipTreninga);
+    }
+
+    @Override
+    public List<Trening> findByOpisTr(String opis){
+        return treningRepository.findByOpisIgnoreCaseContaining(opis);
+    }
 }

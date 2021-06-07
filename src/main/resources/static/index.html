@@ -11,12 +11,31 @@
 </head>
 <body>
 <ul class="navbar">
-    <!--<li class="nav"><a href="registration.html">Registrujte se</a></li>-->
     <li class="nav"><a href="login.html">Ulogujte se</a></li>
     <li class="nav"><a href="dodaj-clana.html">Registrujte se kao clan</a></li>
     <li class="nav"><a href="dodaj-trenera.html">Registrujte se kao trener</a></li>
 </ul>
-<text>Izaberite kriterijum po kom zelite da pretrazite treninge:</text>
+<h2>Izaberite kriterijum po kom zelite da pretrazite treninge:</h2>
+<div class = "treningSearch">
+    <input type="search" id="searchPoTipu" placeholder="Unesite tip treninga"/>
+    <input type="submit" id="btnSearchTip"/><br>
+    <input type="search" id="searchPoNazivu" placeholder="Unesite naziv"/>
+    <input type="submit" id="btnSearchNaziv"/><br>
+    <input type="search" id="searchPoOpis" placeholder="Unesite opis"/>
+    <input type="submit" id="btnSearchOpis"/><br>
+    <div class = "showTreninge">
+    <table id="tableSearch">
+        <h3>Rezultat pretrage:</h3>
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            <th>Opis</th>
+            <th>Tip treninga</th>
+            <th>Trajanje</th>
+        </tr>
+    </table>
+</div>
+</div>
 <br>
 <div>
     <form>
@@ -26,7 +45,6 @@
         <input id="inlineS3" type="radio" name="filterS" value="tipTreninga" onclick="sort()">Tip treninga<br>
     </form>
 </div>
-
 <h1>Lista treninga koji su u ponudi:</h1>
 <div class="container">
 <table id = "treninzi">

@@ -60,4 +60,5 @@ public class TrenerServiceImpl implements TrenerService {
         Trener nt = this.trenerRepository.saveAndFlush(trenerUpdate);
         return nt;
     }
+
 }

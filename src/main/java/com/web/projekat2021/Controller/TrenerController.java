@@ -54,7 +54,7 @@ public class TrenerController {
     }
 
     //odobravanje registracije
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TrenerDTO> odobriTrenera(@PathVariable Long id, @RequestBody TrenerDTO trenerDTO) throws Exception{
 
@@ -88,9 +88,4 @@ public class TrenerController {
 
         return new ResponseEntity<>(trenerDTOs, HttpStatus.OK);
     }
-
-
-
-
-
 }

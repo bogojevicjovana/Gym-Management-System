@@ -16,4 +16,10 @@ public interface TreningService {
     List<Trening> sortByOpis();
 
     List<Trening> sortByTipTreninga();
+
+    List<Trening> findByNazivTr(String naziv);
+
+    List<Trening> findByTipTr(String naziv);
+
+    List<Trening> findByOpisTr(String opis);
 }
