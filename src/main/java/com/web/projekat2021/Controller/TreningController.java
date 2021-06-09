@@ -25,6 +25,7 @@ public class TreningController {
         this.treningService = treningService;
     }
 
+    // izlistavanje treninga
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TreningDTO>> dobaviTreninge(){
 
@@ -39,6 +40,7 @@ public class TreningController {
         return new ResponseEntity<>(treningDTOs, HttpStatus.OK);
     }
 
+    //sortiranje po nazivu
     @GetMapping(value = "/sort/naziv/",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TreningDTO>> sortirajTreningePoNazivu(){
@@ -57,6 +59,7 @@ public class TreningController {
         return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
     }
 
+    //sortiranje po opisu
     @GetMapping(value = "/sort/opis/",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TreningDTO>> sortirajTreningePoOpisu(){
@@ -75,6 +78,7 @@ public class TreningController {
         return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
     }
 
+    //sortiranje po tipu treninga
     @GetMapping(value = "/sort/tiptreninga/",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TreningDTO>> sortirajTreningePoTipuTreninga(){
@@ -93,6 +97,7 @@ public class TreningController {
         return new ResponseEntity<>(listaTreningDTOs, HttpStatus.OK);
     }
 
+    // pretraga po nazivu
     @PostMapping(value="/pretragaPoNazivu", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Trening>> getTreningByNaziv(@RequestBody Trening treningDTO) {
 
@@ -101,6 +106,7 @@ public class TreningController {
         return new ResponseEntity<>(treninzi, HttpStatus.OK);
     }
 
+    //pretraga po tipu
     @PostMapping(value="/pretragaPoTipu", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Trening>> getTreningByTip(@RequestBody Trening treningDTO) {
 
@@ -109,6 +115,7 @@ public class TreningController {
         return new ResponseEntity<>(treninzi, HttpStatus.OK);
     }
 
+    //pretraga po opisu
     @PostMapping(value="/pretragaPoOpis", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Trening>> getTreningByOpis(@RequestBody Trening treningDTO) {
 

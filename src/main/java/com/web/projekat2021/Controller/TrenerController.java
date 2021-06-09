@@ -33,7 +33,7 @@ public class TrenerController {
         this.trenerService = trenerService;
     }
 
-    //registracija clana fitnes centra
+    //registracija trenera fitnes centra
     @PostMapping(
             value = "/dodaj-trenera",
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -72,7 +72,7 @@ public class TrenerController {
         return new ResponseEntity<>(odobrenTrenerDTO, HttpStatus.OK);
     }
 
-
+    //lista trenera
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/dobavi-trenere")
     public ResponseEntity<List<TrenerDTO>> dobaviTrenere(){
 

@@ -62,8 +62,8 @@ $(document).ready(function () {
 //pretraga
 $(document).on('click', '#btnSearchNaziv', function () {
 
-    var searchParam = $("#searchPoNazivu").val();
-    var myJSON = formToJSONnaziv(searchParam)
+    var searchVar = $("#searchPoNazivu").val();
+    var myJSON = formToJSONnaziv(searchVar)   // pozivamo pomoćnu metodu da kreira JSON
 
     $('#tableSearch').empty();
     $.ajax({
@@ -74,7 +74,7 @@ $(document).on('click', '#btnSearchNaziv', function () {
         data: myJSON,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            $('#searchPoNazivu').append(searchParam);
+            $('#searchPoNazivu').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
                 row += "<td>" + data[i]['id'] + "</td>";
@@ -96,8 +96,8 @@ $(document).on('click', '#btnSearchNaziv', function () {
 
 $(document).on('click', '#btnSearchTip', function () {
 
-    var searchParam = $("#searchPoTipu").val();
-    var myJSON = formToJSON3(searchParam)
+    var searchVar = $("#searchPoTipu").val();
+    var myJSON = formToJSON3(searchVar)
 
     $('#tableSearch').empty();
     $.ajax({
@@ -108,7 +108,7 @@ $(document).on('click', '#btnSearchTip', function () {
         data: myJSON,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            $('#searchPoTipu').append(searchParam);
+            $('#searchPoTipu').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
                 row += "<td>" + data[i]['id'] + "</td>";
@@ -130,8 +130,8 @@ $(document).on('click', '#btnSearchTip', function () {
 
 $(document).on('click', '#btnSearchOpis', function () {
 
-    var searchParam = $("#searchPoOpis").val();
-    var myJSON = formToJSON4(searchParam)
+    var searchVar = $("#searchPoOpis").val();
+    var myJSON = formToJSON4(searchVar)
 
     $('#tableSearch').empty();
     $.ajax({
@@ -142,7 +142,7 @@ $(document).on('click', '#btnSearchOpis', function () {
         data: myJSON,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            $('#searchPoOpis').append(searchParam);
+            $('#searchPoOpis').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
                 row += "<td>" + data[i]['id'] + "</td>";

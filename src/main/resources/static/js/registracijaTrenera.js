@@ -1,4 +1,4 @@
-$(document).on("submit", "form", function (event) {           // kada je submitovana forma za kreiranje novog zaposlenog
+$(document).on("submit", "form", function (event) {           // kada je submitovana forma za kreiranje novog trenera
      event.preventDefault();
 
     var korisnickoIme = $("#korisnickoIme").val();
@@ -16,15 +16,15 @@ $(document).on("submit", "form", function (event) {           // kada je submito
     $.ajax({
         type: "POST",
         url: "http://localhost:8080/api/treneri/dodaj-trenera",
-        dataType: "json",
-        contentType: "application/json",
-        data: noviTrenerJSON,
-        success: function (data) {
-            alert(ime + " " + prezime + " je uspešno kreiran kao " + uloga);
-            window.location.href = "login.html";
+        dataType: "json",                           //tip povratne vrijednosti
+        contentType: "application/json",            //tip podatka koji saljemo
+        data: noviTrenerJSON,                       //u body-ju salje se novi trener
+        success: function (data) {                  // poslije uspjesnog zahtjeva izvrsava se ova funkcija
+            alert(ime + " " + prezime + " je uspešno kreiran kao " + uloga);    //prikazuje se poruka o uspjehu
+            window.location.href = "login.html";                                //redirektujemo na login.html
         },
 
-        error: function (data) {
+        error: function (data) {                                                //ukoliko se desi neuspjesan zahtjev
                     alert("Korisnicko ime " + korisnicko + " vec postoji!");
                 }
     });

@@ -23,6 +23,7 @@ public class FitnessCentarController {
         this.fitnessCentarService = fitnessCentarService;
     }
 
+    //dodavanje novog fitnes centra
     @PostMapping(
             value = "/dodaj-fitness-centar",
             consumes = MediaType.APPLICATION_JSON_VALUE,

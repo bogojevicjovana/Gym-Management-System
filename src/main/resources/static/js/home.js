@@ -15,15 +15,15 @@ function formToJSON(idtr, imetr, prezimetr, korisnicko, kontaktTel, datumRodj, e
 
 $(document).ready(function () {
     $.ajax({
-        type: "GET",
-        url: "http://localhost:8080/api/treneri/dobavi-trenere",
-        dataType: "json",
+        type: "GET",                                                // HTTP metoda
+        url: "http://localhost:8080/api/treneri/dobavi-trenere",    // URL koji se gađa
+        dataType: "json",                                           // tip povratne vrednosti
         success: function (data) {
-            console.log("SUCCESS : ", data);
+            console.log("SUCCESS : ", data);                         // ispisujemo u konzoli povratnu vrednost
 
-            for(let trener of data) {
-                let row = "<tr>";
-                row += "<td>" + trener.id + "</td>";
+            for(let trener of data) {                               // prolazimo kroz listu svih trenera
+                let row = "<tr>";                                   // kreiramo red za tabelu
+                row += "<td>" + trener.id + "</td>";                // ubacujemo podatke jednog trenera u polja
                 row += "<td>" + trener.ime + "</td>";
                 row += "<td>" + trener.prezime + "</td>";
                 row += "<td>" + trener.korisnickoIme + "</td>";
@@ -34,11 +34,11 @@ $(document).ready(function () {
                 row += "<td>" + trener.email + "</td>";
                 row += "<td>" + trener.aktivan + "</td>";
 
-                let btn = "<button class='btnOdobriTrenera' data-id=" + trener.id + ">Odobri registraciju</button>";
+                let btn = "<button class='btnOdobriTrenera' data-id=" + trener.id + ">Odobri registraciju</button>";  // ubacujemo button u poslednje polje reda
                 row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
-                $('#treneri').append(row);
+                $('#treneri').append(row);                                   // ubacujemo kreirani red u tabelu čiji je id = treneri
 
             }
         },
