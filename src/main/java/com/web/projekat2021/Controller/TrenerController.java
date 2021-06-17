@@ -88,4 +88,20 @@ public class TrenerController {
 
         return new ResponseEntity<>(trenerDTOs, HttpStatus.OK);
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/dobavi-sve-trenere")
+    public ResponseEntity<List<TrenerDTO>> dobaviSveTrenere(){
+
+        List<Trener> listaTrenera = this.trenerService.listaSvihTrenera();
+        List<TrenerDTO> trenerDTOs = new ArrayList<>();
+
+        for(Trener noviTrener: listaTrenera){
+            TrenerDTO odobrenTrenerDTO = new TrenerDTO(noviTrener.getId(), noviTrener.getKorisnickoIme(), noviTrener.getLozinka(),
+                    noviTrener.getIme(), noviTrener.getPrezime(), noviTrener.getUloga(), noviTrener.getKontaktTelefon(), noviTrener.getDatumRodjenja(),
+                    noviTrener.getEmail(), noviTrener.getAktivan());
+            trenerDTOs.add(odobrenTrenerDTO);
+        }
+
+        return new ResponseEntity<>(trenerDTOs, HttpStatus.OK);
+    }
 }

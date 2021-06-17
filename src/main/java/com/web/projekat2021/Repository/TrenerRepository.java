@@ -10,4 +10,6 @@ public interface TrenerRepository extends JpaRepository<Trener, Long> {
     Trener findOneByKorisnickoIme(String korisnickoIme);
 
     List<Trener> findByAktivanIsFalse();
+
+    List<Trener> findByAktivanIsTrue();
 }

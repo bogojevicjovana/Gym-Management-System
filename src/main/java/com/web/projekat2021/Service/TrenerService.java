@@ -15,4 +15,6 @@ public interface TrenerService {
     Trener findOne(Long id);
 
     Trener update(Trener trener) throws Exception;
+
+    List<Trener> listaSvihTrenera();
 }

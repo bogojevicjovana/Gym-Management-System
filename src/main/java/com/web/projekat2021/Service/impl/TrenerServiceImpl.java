@@ -61,4 +61,10 @@ public class TrenerServiceImpl implements TrenerService {
         return nt;
     }
 
+    @Override
+    public List<Trener> listaSvihTrenera() {
+        List<Trener> listaTrenera = this.trenerRepository.findByAktivanIsTrue();
+        return listaTrenera;
+    }
+
 }

@@ -79,3 +79,41 @@ $(document).on('click', '.btnOdobriTrenera', function () {
             }
         });
 });
+
+//lista svih trenera
+
+$(document).ready(function () {
+    $.ajax({
+        type: "GET",                                                // HTTP metoda
+        url: "http://localhost:8080/api/treneri/dobavi-sve-trenere",    // URL koji se gađa
+        dataType: "json",                                           // tip povratne vrednosti
+        success: function (data) {
+            console.log("SUCCESS : ", data);                         // ispisujemo u konzoli povratnu vrednost
+
+            for(let trener of data) {                               // prolazimo kroz listu svih trenera
+                let row = "<tr>";                                   // kreiramo red za tabelu
+                row += "<td>" + trener.id + "</td>";                // ubacujemo podatke jednog trenera u polja
+                row += "<td>" + trener.ime + "</td>";
+                row += "<td>" + trener.prezime + "</td>";
+                row += "<td>" + trener.korisnickoIme + "</td>";
+                row += "<td>" + trener.lozinka + "</td>";
+                row += "<td>" + trener.kontaktTelefon + "</td>";
+                row += "<td>" + trener.uloga + "</td>";
+                row += "<td>" + trener.datumRodjenja + "</td>";
+                row += "<td>" + trener.email + "</td>";
+                row += "<td>" + trener.aktivan + "</td>";
+
+                let btn = "<button class='btnIzbrisiTrenera' data-id=" + trener.id + ">Ukloni</button>";  // ubacujemo button u poslednje polje reda
+                row += "<td>" + btn + "</td>";
+                row += "</tr>";
+
+                $('#svi_treneri').append(row);                                   // ubacujemo kreirani red u tabelu čiji je id = treneri
+
+            }
+        },
+                    error: function (data) {                                // ova f-ja se izvršava posle neuspešnog zahteva
+                    console.log("ERROR: ", data);
+        }
+
+    });
+});
