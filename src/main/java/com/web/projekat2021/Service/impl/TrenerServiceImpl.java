@@ -67,4 +67,9 @@ public class TrenerServiceImpl implements TrenerService {
         return listaTrenera;
     }
 
+    @Override
+    public void delete(long id) {
+        this.trenerRepository.deleteById(id);
+    }
+
 }

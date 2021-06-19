@@ -104,4 +104,10 @@ public class TrenerController {
 
         return new ResponseEntity<>(trenerDTOs, HttpStatus.OK);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteTrenera(@PathVariable Long id) {
+        this.trenerService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

@@ -117,3 +117,20 @@ $(document).ready(function () {
 
     });
 });
+
+$(document).on('click', '.btnIzbrisiTrenera', function () {
+    let trenerId = this.dataset.id;
+
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/api/treneri/" + trenerId,
+        dataType: "json",
+        success: function () {
+            console.log("SUCCESS");
+            $('[data-id="' + trenerId + '"]').parent().parent().remove();  // ukloni red tabele u kom se nalazi element sa data-id atributom = employeeId
+        },
+        error: function () {
+            alert("Greška prilikom brisanja trenera!");
+        }
+    });
+});
