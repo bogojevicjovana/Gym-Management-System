@@ -24,10 +24,10 @@ INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (40, 'SALA c', 2);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (30, 'SALA d', 2);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (10, 'SALA d', 2);
 
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat Burn', 'visok intenzitet', 'Aerobik', '60min', 4);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fitness Mix', 'zabavan trening','Aerobik' ,'60min', 5);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('YogaTime', 'opustajuci trening', 'Yoga', '70min', 5);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('CardioBurn', 'intenzivno sagorevanje kalorija', 'Cardio', '60min', 5);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat Burn', 'visok intenzitet', 'Aerobik', '60min', NULL);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fitness Mix', 'zabavan trening','Aerobik' ,'60min', NULL);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('YogaTime', 'opustajuci trening', 'Yoga', '70min', NULL);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('CardioBurn', 'intenzivno sagorevanje kalorija', 'Cardio', '60min', NULL);
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
 (10, '2000din', '25.05.2021.', '16:30', 1, 1);
@@ -49,6 +49,3 @@ VALUES ('sanja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 0038164451114
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
 VALUES ('manja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'sanjai@gmail.com', true, 'trener');
-
-INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
-VALUES ('anja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'sanjai@gmail.com', true, 'clan');

@@ -72,4 +72,21 @@ public class TrenerServiceImpl implements TrenerService {
         this.trenerRepository.deleteById(id);
     }
 
+    @Override
+    public Trener createTrener(Trener trener) throws Exception {
+
+        if(trener.getId() != null) {
+            throw new Exception("ID must be null!");
+        }
+
+        Trener trenerNovi = trenerRepository.findOneByKorisnickoIme(trener.getKorisnickoIme());
+        if(trenerNovi != null) {
+            throw new Exception("Korisnicko ime vec postoji!");
+        }
+
+        trener.setAktivan(true);
+        Trener novi = this.trenerRepository.save(trener);
+        return novi;
+    }
+
 }

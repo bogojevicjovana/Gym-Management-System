@@ -110,4 +110,24 @@ public class TrenerController {
         this.trenerService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PostMapping(
+            value = "/dodaj-trenera-admin",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TrenerDTO> registracijaTrenera(@RequestBody TrenerDTO trenerDTO) throws Exception {
+
+        Trener trener = new Trener(trenerDTO.getKorisnickoIme(), trenerDTO.getLozinka(), trenerDTO.getIme(),
+                trenerDTO.getPrezime(), trenerDTO.getUloga(), trenerDTO.getKontaktTelefon(), trenerDTO.getDatumRodjenja(),
+                trenerDTO.getEmail(), trenerDTO.getAktivan());
+
+
+        Trener noviTrener = trenerService.createTrener(trener);
+
+        TrenerDTO newTrenerDTO = new TrenerDTO(noviTrener.getId(), noviTrener.getKorisnickoIme(), noviTrener.getLozinka(),
+                noviTrener.getIme(), noviTrener.getPrezime(), noviTrener.getUloga(), noviTrener.getKontaktTelefon(), noviTrener.getDatumRodjenja(),
+                noviTrener.getEmail(), noviTrener.getAktivan());
+        return new ResponseEntity<>(newTrenerDTO, HttpStatus.CREATED);
+    }
+
 }

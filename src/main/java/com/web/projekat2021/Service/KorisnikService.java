@@ -14,4 +14,5 @@ public interface KorisnikService {
 
     Korisnik login(String korisnicko, String lozinka) throws Exception;
 
+    Korisnik findOne(Long id);
 }

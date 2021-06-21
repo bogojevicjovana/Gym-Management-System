@@ -38,4 +38,9 @@ public class KorisnikServiceImpl implements KorisnikService {
             return korisnik;
         }
     }
+
+    @Override
+    public Korisnik findOne(Long id){
+        return this.korisnikRepository.getOne(id);
+    }
 }

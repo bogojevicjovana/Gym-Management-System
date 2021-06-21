@@ -42,3 +42,49 @@ h3 {
     color: grey;
     font-size: 18px;
 }
+
+
+#table {
+    width: 100%;
+}
+
+h1 {
+    color: #6AA0AB;
+}
+
+h3 {
+    color: #6AA0AB;
+}
+
+#fitness_centar th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6AA0AB;
+    color: white;
+}
+
+#fitness_centar td, #fitness_centar th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#fitness_centar tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#fitness_centar tr:hover {
+    background-color: #ddd;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}

@@ -5,55 +5,75 @@
     <meta charset="utf-8"/>
     <script src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/vrstaKorisnika.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript" src="/js/home.js"></script>
     <link rel="stylesheet" href="/css/treneri.css"/>
     <link rel="stylesheet" href="/css/svitreneri.css"/>
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="/js/sort.js"></script>
+    <link rel="stylesheet" href="/css/tabela.css"/>
+    <link rel="stylesheet" href="/css/home.css"/>
 </head>
 <body>
+<ul class="navbar">
+    <li class="nav"><a href="login.html">Ulogujte se</a></li>
+    <li class="nav"><a href="dodaj-clana.html">Registrujte se kao clan</a></li>
+    <li class="nav"><a href="dodaj-trenera.html">Registrujte se kao trener</a></li>
+</ul>
+<h2>Izaberite kriterijum po kom zelite da pretrazite treninge:</h2>
+<div class = "treningSearch">
+    <input type="search" id="searchPoTipu" placeholder="Unesite tip treninga"/>
+    <input type="submit" id="btnSearchTip"/><br>
+    <input type="search" id="searchPoNazivu" placeholder="Unesite naziv"/>
+    <input type="submit" id="btnSearchNaziv"/><br>
+    <input type="search" id="searchPoOpis" placeholder="Unesite opis"/>
+    <input type="submit" id="btnSearchOpis"/><br>
+    <div class = "showTreninge">
+        <table id="tableSearch">
+            <h3>Rezultat pretrage:</h3>
+            <tr>
+                <th>Id</th>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Tip treninga</th>
+                <th>Trajanje</th>
+            </tr>
+        </table>
+    </div>
+</div>
+<br>
+<div>
+    <form>
+        <h2>Odaberite kriterijum za sortirnje: </h2>
+        <input id="inlineS1" type="radio" name="filterS" value="naziv" onclick="sort()">Naziv<br>
+        <input id="inlineS2" type="radio" name="filterS" value="opis" onclick="sort()">Opis<br>
+        <input id="inlineS3" type="radio" name="filterS" value="tipTreninga" onclick="sort()">Tip treninga<br>
+    </form>
+</div>
+<h1>Lista treninga koji su u ponudi:</h1>
+<div class="container">
+    <table id = "treninzi">
+        <tr>
+            <th>Id</th>
+            <th>Naziv</th>
+            <th>Opis</th>
+            <th>Tip treninga</th>
+            <th>Trajanje</th>
+        </tr>
+    </table>
+</div>
 <div class = "admin">
-    <h1>Zahtevi za registraciju od strane trenera:</h1>
-    <table id = "treneri">
-        <tr>
-            <th>Id</th>
-            <th>Ime</th>
-            <th>Prezime</th>
-            <th>Korisnicko ime</th>
-            <th>Lozinka</th>
-            <th>Kontakt telefon</th>
-            <th>Uloga</th>
-            <th>Datum rodjenja</th>
-            <th>Email</th>
-            <th>Profil aktiviran</th>
-        </tr>
-    </table>
     <br>
     <br>
-    <h1>Lista svih trenera: </h1>
-    <table id = "svi_treneri">
-        <tr>
-            <th>Id</th>
-            <th>Ime</th>
-            <th>Prezime</th>
-            <th>Korisnicko ime</th>
-            <th>Lozinka</th>
-            <th>Kontakt telefon</th>
-            <th>Uloga</th>
-            <th>Datum rodjenja</th>
-            <th>Email</th>
-            <th>Profil aktiviran</th>
-        </tr>
-    </table>
+    <br>
+    <button onclick="location.href = '/treneri.html'">Treneri</button>
+    <button onclick="location.href = '/sale.html'">Fitness centri</button>
 
-    <br>
-    <br>
-    <button onclick="location.href = '/dodavanjeFitnesCentra.html'">Dodaj novi fitnes centar</button>
 </div>
 <div class = "trener">
     <p1>Pocetna za trenera</p1>
 </div>
 <div class = "clan">
-    <p1>Pocetna za clana</p1>
+    <li class="nav"><a href="profil.html">Profil</a></li>
 </div>
 </body>
 </html>

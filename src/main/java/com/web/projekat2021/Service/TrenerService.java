@@ -19,4 +19,6 @@ public interface TrenerService {
     List<Trener> listaSvihTrenera();
 
     void delete(long id);
+
+    Trener createTrener(Trener trener) throws Exception;
 }

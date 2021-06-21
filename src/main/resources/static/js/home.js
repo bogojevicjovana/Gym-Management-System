@@ -72,7 +72,7 @@ $(document).on('click', '.btnOdobriTrenera', function () {
             data: trenerToUpdate,
             success: function () {
                 console.log("SUCCESS");
-                window.location.href = "home.html";
+                window.location.href = "treneri.html";
             },
             error: function () {
                 alert("Greška");

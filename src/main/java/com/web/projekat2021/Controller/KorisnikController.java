@@ -50,6 +50,23 @@ public class KorisnikController {
         return new ResponseEntity<>(ulogovanKorisnik, HttpStatus.BAD_REQUEST);
     }
 
+    @GetMapping(value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<KorisnikDTO> getKorisnik(@PathVariable(name = "id") Long id) {
+        Korisnik korisnik = this.korisnikService.findOne(id);
 
+        KorisnikDTO korisnikDTO = new KorisnikDTO();
+        korisnikDTO.setId(korisnik.getId());
+        korisnikDTO.setKorisnickoIme(korisnik.getKorisnickoIme());
+        korisnikDTO.setLozinka(korisnik.getLozinka());
+        korisnikDTO.setIme(korisnik.getIme());
+        korisnikDTO.setPrezime(korisnik.getPrezime());
+        korisnikDTO.setKontaktTelefon(korisnik.getKontaktTelefon());
+        korisnikDTO.setEmail(korisnik.getEmail());
+        korisnikDTO.setDatumRodjenja(korisnik.getDatumRodjenja());
+
+
+        return new ResponseEntity<>(korisnikDTO, HttpStatus.OK);
+    }
 
 }

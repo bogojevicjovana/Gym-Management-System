@@ -3,19 +3,22 @@ $(document).ready(function () {
     var TrenerDiv = $(".trener");
     var AdminDiv = $(".admin");
 
-    ClanDiv.hide();
-    TrenerDiv.hide();
-    AdminDiv.hide();
-
-
     var ulogaUlogovanogKorisnika = localStorage.getItem('uloga');
     alert(ulogaUlogovanogKorisnika);
-    if (ulogaUlogovanogKorisnika === 'Clan') {
-         CLanDiv.show();
+
+
+    if(ulogaUlogovanogKorisnika == 'Admin') {
+        AdminDiv.show();
+        ClanDiv.hide();
+        TrenerDiv.hide();
+    } else if (ulogaUlogovanogKorisnika == 'Clan') {
+        ClanDiv.show();
+        AdminDiv.hide();
+        TrenerDiv.hide();
     } else {
-         if (ulogaUlogovanogKorisnika === 'Trener') {
-             TrenerDiv.show();
-         } else
-             AdminDiv.show();
+        TrenerDiv.show();
+        ClanDiv.hide();
+        AdminDiv.hide();
     }
+
     });

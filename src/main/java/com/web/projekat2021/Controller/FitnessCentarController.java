@@ -3,15 +3,17 @@ package com.web.projekat2021.Controller;
 import com.web.projekat2021.Model.Clan;
 import com.web.projekat2021.Model.DTO.ClanDTO;
 import com.web.projekat2021.Model.DTO.FitnessCentarDTO;
+import com.web.projekat2021.Model.DTO.TreningDTO;
 import com.web.projekat2021.Model.FitnessCentar;
+import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Service.FitnessCentarService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/fc")
@@ -40,6 +42,20 @@ public class FitnessCentarController {
                 newFitnessCenter.getBrTelefonaCentrale(), newFitnessCenter.getEmail());
 
         return new ResponseEntity<>(newFitnessCenterDTO, HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/dobavi-centre", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<FitnessCentarDTO>> dobaviCentre(){
+
+        List<FitnessCentar> lista = this.fitnessCentarService.listaCentara();
+        List<FitnessCentarDTO> centarDTOs = new ArrayList<>();
+
+        for(FitnessCentar fitnessCentar: lista){
+            FitnessCentarDTO centarDTO = new FitnessCentarDTO(fitnessCentar.getId(), fitnessCentar.getNaziv(), fitnessCentar.getBrTelefonaCentrale(), fitnessCentar.getAdresa(), fitnessCentar.getEmail());
+            centarDTOs.add(centarDTO);
+        }
+
+        return new ResponseEntity<>(centarDTOs, HttpStatus.OK);
     }
 
 

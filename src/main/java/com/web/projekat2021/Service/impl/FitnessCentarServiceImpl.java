@@ -6,6 +6,8 @@ import com.web.projekat2021.Service.FitnessCentarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FitnessCentarServiceImpl implements FitnessCentarService{
 
@@ -22,6 +24,16 @@ public class FitnessCentarServiceImpl implements FitnessCentarService{
                 FitnessCentar noviCentar = this.fitnessCentarRepository.save(fc);
                 return noviCentar;
             }
+
+            @Override
+            public List<FitnessCentar> listaCentara() {
+                return this.fitnessCentarRepository.findAll();
+            }
+
+            @Override
+            public FitnessCentar findOne(Long id) {return this.fitnessCentarRepository.getOne(id);}
+
+
 
 }
 

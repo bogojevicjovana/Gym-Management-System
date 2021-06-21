@@ -3,31 +3,31 @@
 }
 
 h1 {
-    color: #217ABC;
+    color: #4CAF50;
 }
 
 h3 {
-    color: #217ABC;
+    color: #4CAF50;
 }
 
-#svi_treneri th {
+#korisnici th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #217ABC;
+    background-color: #4CAF50;
     color: white;
 }
 
-#svi_treneri td, #treninzi th {
+#korisnici td, #korisnici th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#svi_treneri tr:nth-child(even) {
+#korisnici tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#svi_treneri tr:hover {
+#korisnici tr:hover {
     background-color: #ddd;
 }
 
