@@ -36,6 +36,18 @@ public class FitnessCentar implements Serializable {
     @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> termini = new HashSet<>();
 
+    public Set<Trener> getTreneri() {
+        return treneri;
+    }
+
+    public Set<Sala> getSale() {
+        return sale;
+    }
+
+    public Set<Termin> getTermini() {
+        return termini;
+    }
+
     public Long getId() {
         return id;
     }

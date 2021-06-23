@@ -127,7 +127,7 @@ $(document).on('click', '.btnIzbrisiTrenera', function () {
         dataType: "json",
         success: function () {
             console.log("SUCCESS");
-            $('[data-id="' + trenerId + '"]').parent().parent().remove();  // ukloni red tabele u kom se nalazi element sa data-id atributom = employeeId
+            $('[data-id="' + trenerId + '"]').parent().parent().remove();
         },
         error: function () {
             alert("Greška prilikom brisanja trenera!");

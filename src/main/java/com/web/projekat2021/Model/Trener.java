@@ -11,7 +11,7 @@ public class Trener extends Korisnik {
     private Float prosecnaOcena;
 
     // fitnes centar u kom radi trener
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnessCentar fitnesscentar;
 
     //trener drzi vise treninga

@@ -1,3 +1,4 @@
+
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
 VALUES ('ivan.ivanovic', 'sif', 'Ivan', 'Ivanovic', 'Admin', 00381644877545, '22.04.1998.', 'ivanivanovic@gmail.com', true, 'admin');
 
@@ -13,10 +14,10 @@ INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('
 INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('XGym', 'Danila Kisa 18, Novi Sad', 00381123855457, 'xgym@gmail.com');
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
-VALUES ('petar.petrovic', 'sifra12', 'Petar', 'Petrovic', 'Trener', 00381674177545, '22.04.1995.', 'petrovicpe@gmail.com', false, 'trener', 1, 9.5);
+VALUES ('petar.petrovic', 'sifra12', 'Petar', 'Petrovic', 'Trener', 00381674177545, '22.04.1995.', 'petrovicpe@gmail.com', false, 'trener', NULL, 9.5);
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
-VALUES ('ivana.petkovic', 'sifr125', 'Ivana', 'Petkovic', 'Trener', 00381674124545, '22.04.1996.', 'petkovicivana@gmail.com', false, 'trener', 2, 8.7);
+VALUES ('ivana.petkovic', 'sifr125', 'Ivana', 'Petkovic', 'Trener', 00381674124545, '22.04.1996.', 'petkovicivana@gmail.com', false, 'trener', NULL, 8.7);
 
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (50, 'SALA a', 1);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (60, 'SALA b', 1);
@@ -24,16 +25,16 @@ INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (40, 'SALA c', 2);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (30, 'SALA d', 2);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (10, 'SALA d', 2);
 
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat Burn', 'visok intenzitet', 'Aerobik', '60min', NULL);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fitness Mix', 'zabavan trening','Aerobik' ,'60min', NULL);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('YogaTime', 'opustajuci trening', 'Yoga', '70min', NULL);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('CardioBurn', 'intenzivno sagorevanje kalorija', 'Cardio', '60min', NULL);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat Burn', 'visok intenzitet', 'Aerobik', '60min', 4);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fitness Mix', 'zabavan trening','Aerobik' ,'60min', 4);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('YogaTime', 'opustajuci trening', 'Yoga', '70min', 4);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('CardioBurn', 'intenzivno sagorevanje kalorija', 'Cardio', '60min', 4);
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
-(10, '2000din', '25.05.2021.', '16:30', 1, 1);
+(10, '2000din', '25.05.2021.', '16:30', NULL, 1);
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
-(10, '2000din', '15.05.2021', '17:00', 2, 2);
+(10, '2000din', '15.05.2021', '17:00', NULL, 2);
 
 INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9.5, 2, 1);
 INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9, 2, 2);

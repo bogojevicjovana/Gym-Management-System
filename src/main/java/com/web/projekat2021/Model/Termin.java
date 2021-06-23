@@ -35,7 +35,7 @@ public class Termin implements Serializable {
 
 
     // fitnes centar u kom se odvija termin
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnessCentar fitnessCentar;
 
     public Long getId() {

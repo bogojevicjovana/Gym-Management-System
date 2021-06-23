@@ -35,7 +35,6 @@ public class FitnessCentarController {
         FitnessCentar noviCentar = new FitnessCentar(fcDTO.getNaziv(), fcDTO.getAdresa(), fcDTO.getBrTelefonaCentrale(),
                 fcDTO.getEmail());
 
-
         FitnessCentar newFitnessCenter = fitnessCentarService.create(noviCentar);
 
         FitnessCentarDTO newFitnessCenterDTO = new FitnessCentarDTO(newFitnessCenter.getId(), newFitnessCenter.getNaziv(), newFitnessCenter.getAdresa(),
@@ -56,6 +55,30 @@ public class FitnessCentarController {
         }
 
         return new ResponseEntity<>(centarDTOs, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/update",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<FitnessCentarDTO> izmeniCentar(@RequestBody FitnessCentarDTO centarDTO) throws Exception {
+        FitnessCentar centar = fitnessCentarService.findOne(centarDTO.getId());
+
+        if(!centarDTO.getNaziv().equals("")) { centar.setNaziv(centarDTO.getNaziv()); }
+        if(!centarDTO.getBrTelefonaCentrale().equals("")) { centar.setBrTelefonaCentrale(centarDTO.getBrTelefonaCentrale()); }
+        if(!centarDTO.getAdresa().equals("")) { centar.setAdresa(centarDTO.getAdresa()); }
+        if(!centarDTO.getEmail().equals("")) { centar.setEmail(centarDTO.getEmail()); }
+
+        FitnessCentar izmenjenCentar = this.fitnessCentarService.update(centar);
+
+        FitnessCentarDTO izmenjenCentarDTO = new FitnessCentarDTO(izmenjenCentar.getId(), izmenjenCentar.getNaziv(), izmenjenCentar.getBrTelefonaCentrale(),
+                izmenjenCentar.getAdresa(), izmenjenCentar.getEmail());
+
+        return new ResponseEntity<>(izmenjenCentarDTO, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteCentar(@PathVariable Long id) {
+        this.fitnessCentarService.delete(id);
     }
 
 

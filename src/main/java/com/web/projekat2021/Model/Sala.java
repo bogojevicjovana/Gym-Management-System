@@ -19,7 +19,7 @@ public class Sala implements Serializable {
     private String oznaka;
 
     //fitnes centar u kom se nalazi sala
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnessCentar fitnesscentar;
 
     // u jednoj sali se moze odrzati vise treninga u razlicitim terminima
@@ -29,6 +29,18 @@ public class Sala implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> terminiSala = new HashSet<>();
 
+    public Sala(String kapacitet, String oznaka) {
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+    }
+
+    public Sala(){}
+
+    public Sala(String kapacitet, String oznaka, FitnessCentar fitnesscentar) {
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+        this.fitnesscentar = fitnesscentar;
+    }
 
     public Long getId() {
         return id;

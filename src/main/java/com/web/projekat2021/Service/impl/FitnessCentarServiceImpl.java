@@ -33,7 +33,23 @@ public class FitnessCentarServiceImpl implements FitnessCentarService{
             @Override
             public FitnessCentar findOne(Long id) {return this.fitnessCentarRepository.getOne(id);}
 
+            @Override
+            public FitnessCentar update(FitnessCentar centar) throws Exception {
+                FitnessCentar centarUpdate = this.fitnessCentarRepository.getOne(centar.getId());
 
+                if(centarUpdate == null) {
+                    throw new Exception("Centar ne postoji!");
+                }
+
+                centarUpdate.setNaziv(centar.getNaziv());
+                centarUpdate.setBrTelefonaCentrale(centar.getBrTelefonaCentrale());
+                centarUpdate.setAdresa(centar.getAdresa());
+                centarUpdate.setEmail(centar.getEmail());
+
+                return this.fitnessCentarRepository.save(centarUpdate);}
+
+                @Override
+                public void delete(Long id) {this.fitnessCentarRepository.deleteById(id);}
 
 }
 

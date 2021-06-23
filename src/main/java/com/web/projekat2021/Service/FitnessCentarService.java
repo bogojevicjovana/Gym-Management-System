@@ -13,5 +13,8 @@ public interface FitnessCentarService {
     List<FitnessCentar> listaCentara();
 
     FitnessCentar findOne(Long id);
-    
+
+    FitnessCentar update(FitnessCentar centar) throws Exception;
+
+    void delete(Long id);
 }

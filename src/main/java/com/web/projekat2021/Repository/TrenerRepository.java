@@ -12,4 +12,5 @@ public interface TrenerRepository extends JpaRepository<Trener, Long> {
     List<Trener> findByAktivanIsFalse();
 
     List<Trener> findByAktivanIsTrue();
+
 }
