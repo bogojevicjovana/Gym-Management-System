@@ -35,6 +35,15 @@ function formToJSON4(opisTr) {
     );
 }
 
+function formToJSONcena(cena) {
+    return JSON.stringify(
+        {
+            "cena": cena
+
+        }
+    );
+}
+
 $(document).ready(function () {
     $.ajax({
         type: "GET",
@@ -159,5 +168,5 @@ $(document).on('click', '#btnSearchOpis', function () {
 
         }
     });
-
 });
+

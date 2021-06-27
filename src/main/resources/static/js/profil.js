@@ -19,7 +19,7 @@ $(document).ready(function () {
 
 
 
-            var korisniciDiv = $("#jedanKorisnik");              // dobavi element čiji je id = oneEmployee
+            var korisniciDiv = $("#profil-korisnika");              // dobavi element čiji je id = oneEmployee
             korisniciDiv.show();                               // prikaži taj element
           },
           error: function (data) {

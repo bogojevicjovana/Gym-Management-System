@@ -1,5 +1,8 @@
 package com.web.projekat2021.Model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -24,6 +27,7 @@ public class Sala implements Serializable {
 
     // u jednoj sali se moze odrzati vise treninga u razlicitim terminima
     @ManyToMany
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(name = "raspored_sala_termin",
             joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))

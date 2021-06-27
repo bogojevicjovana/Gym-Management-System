@@ -14,6 +14,9 @@ $(document).ready(function (){
                 row += "<td>" + data[i]['kapacitet'] + "</td>";
                 row += "<td>" + data[i]['oznaka'] + "</td>";
 
+                var btn1 = "<button class='btnIzmeniSalu' id = " + data[i]['id'] + ">Izmeni</button>";
+                row += "<td>" + btn1 + "</td>";
+
                 $('#sale').append(row);
             }
         },
@@ -53,3 +56,8 @@ function formToJSON(kapacitet, oznaka) {
         "oznaka": oznaka
    });
 }
+
+$(document).on('click', '.btnIzmeniSalu', function () {
+    localStorage.setItem('idZaIzmenuSale', this.id);
+    window.location.href = "updateSala.html";
+});

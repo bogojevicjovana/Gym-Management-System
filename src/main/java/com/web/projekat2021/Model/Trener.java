@@ -1,5 +1,8 @@
 package com.web.projekat2021.Model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +19,7 @@ public class Trener extends Korisnik {
 
     //trener drzi vise treninga
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Trening> treninziTrenera = new HashSet<>();
 
 

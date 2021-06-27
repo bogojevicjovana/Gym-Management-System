@@ -37,11 +37,19 @@ INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, 
 (10, '2000din', '15.05.2021', '17:00', NULL, 2);
 
 INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9.5, 2, 1);
-INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9, 2, 2);
-INSERT INTO ODRADJENI_TRENING(clan_id, trening_id) VALUES (2, 2);
 
 
 INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (2, 1);
+INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (2, 2);
+
+INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (3, 1);
+INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (3, 2);
+INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (3, 3);
+INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (3, 4);
+
+INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (NULL, 3, 4);
+INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (9.5, 3, 1);
+INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (NULL, 3, 2);
 
 INSERT INTO RASPORED_SALA_TERMIN(sala_id, termin_id) VALUES (1, 1);
 

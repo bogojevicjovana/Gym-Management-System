@@ -1,5 +1,8 @@
 package com.web.projekat2021.Model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -26,14 +29,17 @@ public class FitnessCentar implements Serializable {
 
     // u jednom fitnescentru radi vise trenera
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Trener> treneri = new HashSet<>();
 
     //u jednom fitnes centru nalazi se vise sala
     @OneToMany(mappedBy = "fitnesscentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Sala> sale = new HashSet<>();
 
     // u fitnes centru odrzavaju se treninzi u vise termina
     @OneToMany(mappedBy = "fitnessCentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Termin> termini = new HashSet<>();
 
     public Set<Trener> getTreneri() {

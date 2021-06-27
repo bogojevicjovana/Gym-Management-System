@@ -89,4 +89,7 @@ public class TrenerServiceImpl implements TrenerService {
         return novi;
     }
 
+    @Override
+    public void obrisi(Long id) {this.trenerRepository.deleteById(id);}
+
 }

@@ -36,9 +36,9 @@ public class SalaController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/{id}")
     public ResponseEntity<Set<SalaDTO>> dobaviSale(@PathVariable(name = "id") Long id) throws Exception{
-        FitnessCentar centar = fitnessCentarService.findOne(id);
+        FitnessCentar centar = fitnessCentarService.findOne(id);        // pronaci centar po prosledjenom id-ju
 
-        Set<Sala> listaSala = centar.getSale();
+        Set<Sala> listaSala = centar.getSale();                         // pronaci listu sala za taj centar
 
         Set<SalaDTO> salaDTOs = new HashSet<>();
 
@@ -70,5 +70,17 @@ public class SalaController {
         return new ResponseEntity<>(novaDTO, HttpStatus.CREATED);
     }
 
+    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<SalaDTO> izmeniSalu(@RequestBody SalaDTO salaDTO) throws Exception {
+        Sala sala = salaService.findOne(salaDTO.getId());
+
+        if(!salaDTO.getKapacitet().equals("")) { sala.setKapacitet(salaDTO.getKapacitet()); }
+        if(!salaDTO.getOznaka().equals("")) { sala.setOznaka(salaDTO.getOznaka()); }
+
+        Sala novaSala = this.salaService.update(sala);
+        SalaDTO izmenjenaSalaDTO = new SalaDTO(novaSala.getId(), novaSala.getKapacitet(), novaSala.getOznaka());
+
+        return new ResponseEntity<>(izmenjenaSalaDTO, HttpStatus.OK);
+    }
 
 }

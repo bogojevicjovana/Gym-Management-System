@@ -133,3 +133,123 @@ h3 {
     color: grey;
     font-size: 18px;
 }
+
+#table {
+    width: 100%;
+}
+
+h1 {
+    color: #6AA0AB;
+}
+
+h3 {
+    color: #6AA0AB;
+}
+
+#treninziClana th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6AA0AB;
+    color: white;
+}
+
+#treninziClana td, #treninziClana th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#treninziClana tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#treninziClana tr:hover {
+    background-color: #ddd;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#table {
+    width: 100%;
+}
+
+h1 {
+    color: #6AA0AB;
+}
+
+h3 {
+    color: #6AA0AB;
+}
+
+#odradjeniTreninziClana th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6AA0AB;
+    color: white;
+}
+
+#odradjeniTreninziClana td, #treninziClana th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#odradjeniTreninziClana tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#odradjeniTreninziClana tr:hover {
+    background-color: #ddd;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#table {
+    width: 100%;
+}
+
+h1 {
+    color: #6AA0AB;
+}
+
+h3 {
+    color: #6AA0AB;
+}
+
+#odradjeniTreninziClanaBezOcene th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #6AA0AB;
+    color: white;
+}
+
+#odradjeniTreninziClana td, #treninziClana th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#odradjeniTreninziClanaBezOcene tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#odradjeniTreninziClanaBezOcene tr:hover {
+    background-color: #ddd;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}

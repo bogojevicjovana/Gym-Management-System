@@ -8,4 +8,5 @@ public interface ClanService {
 
     Clan create(Clan clan) throws Exception;
 
+    Clan findOne(Long idClana);
 }

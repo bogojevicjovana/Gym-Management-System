@@ -36,4 +36,7 @@ public class ClanServiceImpl implements ClanService {
         return noviClan;
     }
 
+    @Override
+    public Clan findOne(Long idClana) {return this.clanRepository.getOne(idClana);}
+
 }

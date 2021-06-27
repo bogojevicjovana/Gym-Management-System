@@ -21,4 +21,6 @@ public interface TrenerService {
     void delete(long id);
 
     Trener createTrener(Trener trener) throws Exception;
+
+    void obrisi(Long id);
 }

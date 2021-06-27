@@ -41,3 +41,25 @@ function check4() {
         tekst.style.display = "none";
     }
 }
+
+function check5() {
+    var checkBox = document.getElementById("inline5");
+    var tekst = document.getElementById("kapacitet");
+
+    if (checkBox.checked === true) {
+        tekst.style.display = "inline";
+    } else {
+        tekst.style.display = "none";
+    }
+}
+
+function check6() {
+    var checkBox = document.getElementById("inline6");
+    var tekst = document.getElementById("oznaka");
+
+    if (checkBox.checked === true) {
+        tekst.style.display = "inline";
+    } else {
+        tekst.style.display = "none";
+    }
+}

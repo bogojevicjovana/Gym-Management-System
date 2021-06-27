@@ -1,9 +1,11 @@
 package com.web.projekat2021.Controller;
 
+import com.web.projekat2021.Model.Clan;
 import com.web.projekat2021.Model.DTO.KorisnikDTO;
 import com.web.projekat2021.Model.DTO.LoginKorisnikDTO;
 import com.web.projekat2021.Model.DTO.TreningDTO;
 import com.web.projekat2021.Model.Trening;
+import com.web.projekat2021.Service.ClanService;
 import com.web.projekat2021.Service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/api/treninzi")
@@ -24,6 +28,9 @@ public class TreningController {
     public TreningController(TreningService treningService){
         this.treningService = treningService;
     }
+
+    @Autowired
+    public ClanService clanService;
 
     // izlistavanje treninga
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -123,6 +130,29 @@ public class TreningController {
 
         return new ResponseEntity<>(treninzi, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/prikazPrijavljenih/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<TreningDTO>> pregledPrijavljenihTreninga(@PathVariable(name = "id") Long idClana) throws Exception {
+
+        Clan clan = clanService.findOne(idClana);
+        Set<Trening> treninzi = clan.getPrijavljeniTreninzi();
+
+        Set<TreningDTO> treninziDTOS = new HashSet<>();
+
+        if (treninzi == null) {
+            throw new Exception("Ne postoje prijavljeni treninzi");
+        } else {
+            for (Trening trening : treninzi) {
+                TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
+                        trening.getTipTreninga(), trening.getTrajanje());
+                treninziDTOS.add(treningDTO);
+            }
+        }
+
+        return new ResponseEntity<>(treninziDTOS, HttpStatus.OK);
+    }
+
+
 
 
 }

@@ -1,5 +1,8 @@
 package com.web.projekat2021.Model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
@@ -26,13 +29,13 @@ public class Termin implements Serializable {
     @Column
     private Integer brojPrijavljenihCl;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trening trening;
 
     // trening u odredjenom terminu se moze odrzati u vise sala
     @ManyToMany(mappedBy = "terminiSala")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Sala> saleTermin = new HashSet<>();
-
 
     // fitnes centar u kom se odvija termin
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

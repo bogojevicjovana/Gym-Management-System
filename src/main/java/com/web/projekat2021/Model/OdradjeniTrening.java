@@ -1,5 +1,8 @@
 package com.web.projekat2021.Model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,6 +20,7 @@ public class OdradjeniTrening implements Serializable {
     private Clan clan;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Trening trening;
 
     public Long getId() {

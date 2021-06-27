@@ -1,10 +1,12 @@
 package com.web.projekat2021.Service;
 
 import com.web.projekat2021.Model.Korisnik;
+import com.web.projekat2021.Model.OdradjeniTrening;
 import com.web.projekat2021.Model.Trening;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public interface TreningService {
@@ -22,4 +24,5 @@ public interface TreningService {
     List<Trening> findByTipTr(String naziv);
 
     List<Trening> findByOpisTr(String opis);
+
 }

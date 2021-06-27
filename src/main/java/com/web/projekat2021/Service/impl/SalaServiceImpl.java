@@ -1,5 +1,6 @@
 package com.web.projekat2021.Service.impl;
 
+import com.web.projekat2021.Model.FitnessCentar;
 import com.web.projekat2021.Model.Sala;
 import com.web.projekat2021.Repository.SalaRepository;
 import com.web.projekat2021.Repository.TrenerRepository;
@@ -25,5 +26,26 @@ public class SalaServiceImpl implements SalaService {
     }
 
     @Override
-    public Sala create(Sala novaSala) {return this.salaRepository.save(novaSala);}
+    public Sala create(Sala novaSala) {
+        return this.salaRepository.save(novaSala);
+    }
+
+    @Override
+    public Sala findOne(Long id) {
+        return this.salaRepository.getOne(id);
+    }
+
+    @Override
+    public Sala update(Sala sala) throws Exception {
+        Sala salaUpdate = this.salaRepository.getOne(sala.getId());
+
+        if(salaUpdate == null) {
+            throw new Exception("Sala ne postoji!");
+        }
+
+        salaUpdate.setKapacitet(sala.getKapacitet());
+        salaUpdate.setOznaka(sala.getOznaka());
+
+        return this.salaRepository.save(salaUpdate);}
+
 }

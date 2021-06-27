@@ -7,6 +7,14 @@ import java.util.Set;
 @DiscriminatorValue("clan")
 public class Clan extends Korisnik{
 
+    public Set<Trening> getPrijavljeniTreninzi() {
+        return prijavljeniTreninzi;
+    }
+
+    public Set<OdradjeniTrening> getOdradjeniTreninziClana() {
+        return odradjeniTreninziClana;
+    }
+
     //vise clanova se moze prijaviti za jedan trening
     @ManyToMany
     @JoinTable(name = "prijavljeni_treninzi",
@@ -15,12 +23,12 @@ public class Clan extends Korisnik{
     private Set<Trening> prijavljeniTreninzi = new HashSet<>();
 
     @OneToMany(mappedBy = "clan")
-    private Set<OdradjeniTrening> odraljeniTreninziClana = new HashSet<>();
+    private Set<OdradjeniTrening> odradjeniTreninziClana = new HashSet<>();
 
     public Clan(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String kontaktTelefon, String datumRodjenja, String email, Boolean aktivan, Set<Trening> prijavljeniTreninzi, Set<OdradjeniTrening> odraljeniTreninziClana) {
         super(korisnickoIme, lozinka, ime, prezime, uloga, kontaktTelefon, datumRodjenja, email, aktivan);
         this.prijavljeniTreninzi = prijavljeniTreninzi;
-        this.odraljeniTreninziClana = odraljeniTreninziClana;
+        this.odradjeniTreninziClana = odraljeniTreninziClana;
     }
 
     public Clan(){}

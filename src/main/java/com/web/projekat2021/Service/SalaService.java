@@ -12,4 +12,8 @@ public interface SalaService {
 
 
     Sala create(Sala novaSala);
+
+    Sala findOne(Long id);
+
+    Sala update(Sala sala) throws Exception;
 }

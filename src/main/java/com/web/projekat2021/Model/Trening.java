@@ -1,6 +1,9 @@
 package com.web.projekat2021.Model;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -27,16 +30,20 @@ public class Trening implements Serializable {
 
     // trener koji odrzava trening
     @ManyToOne(fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Trener trener;
 
     // za jedan trening se moze prijaviti vise clanova
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Clan> prijavljeniClanovi = new HashSet<>();
 
     @OneToMany(mappedBy = "trening")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Termin> treningTermini = new HashSet<>();
 
     @OneToMany(mappedBy = "trening")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<OdradjeniTrening> odradjeniTreninzi = new HashSet<>();
 
     public Long getId() {

@@ -1,6 +1,7 @@
 package com.web.projekat2021.Service.impl;
 
 import com.web.projekat2021.Model.Korisnik;
+import com.web.projekat2021.Model.OdradjeniTrening;
 import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Repository.KorisnikRepository;
 import com.web.projekat2021.Repository.TreningRepository;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TreningServiceImpl implements TreningService {
@@ -26,6 +28,7 @@ public class TreningServiceImpl implements TreningService {
             List<Trening> treninzi = this.treningRepository.findAll();
             return treninzi;
     }
+
 
     @Override
     public List<Trening> sortByNaziv(){
