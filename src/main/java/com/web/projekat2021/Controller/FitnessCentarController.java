@@ -1,11 +1,9 @@
 package com.web.projekat2021.Controller;
 
-import com.web.projekat2021.Model.Clan;
+import com.web.projekat2021.Model.*;
 import com.web.projekat2021.Model.DTO.ClanDTO;
 import com.web.projekat2021.Model.DTO.FitnessCentarDTO;
 import com.web.projekat2021.Model.DTO.TreningDTO;
-import com.web.projekat2021.Model.FitnessCentar;
-import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Service.FitnessCentarService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/api/fc")
@@ -76,10 +75,10 @@ public class FitnessCentarController {
         return new ResponseEntity<>(izmenjenCentarDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public void deleteCentar(@PathVariable Long id) {
+    @PostMapping("/delete/{id}")
+    public void deleteCentar(@PathVariable("id") long id) {
+        FitnessCentar centar = this.fitnessCentarService.findOne(id);
         this.fitnessCentarService.delete(id);
     }
-
 
 }

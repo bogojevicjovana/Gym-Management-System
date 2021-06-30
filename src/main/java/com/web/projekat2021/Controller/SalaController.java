@@ -83,4 +83,10 @@ public class SalaController {
         return new ResponseEntity<>(izmenjenaSalaDTO, HttpStatus.OK);
     }
 
+    @PostMapping("/delete/{id}")
+    public void deleteSala(@PathVariable("id") long id) {
+        Sala sala = this.salaService.findOne(id);
+        this.salaService.delete(id);
+    }
+
 }

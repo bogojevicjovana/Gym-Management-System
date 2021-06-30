@@ -20,7 +20,6 @@ public class OdradjeniTrening implements Serializable {
     private Clan clan;
 
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Trening trening;
 
     public Long getId() {

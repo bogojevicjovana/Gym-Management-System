@@ -46,6 +46,10 @@ public class SalaServiceImpl implements SalaService {
         salaUpdate.setKapacitet(sala.getKapacitet());
         salaUpdate.setOznaka(sala.getOznaka());
 
-        return this.salaRepository.save(salaUpdate);}
+        return this.salaRepository.save(salaUpdate);
+    }
+
+    @Override
+    public void delete(Long id) {this.salaRepository.deleteById(id);}
 
 }

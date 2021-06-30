@@ -29,21 +29,17 @@ public class Trening implements Serializable {
     private String trajanje;
 
     // trener koji odrzava trening
-    @ManyToOne(fetch = FetchType.EAGER)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch =  FetchType.LAZY)
     private Trener trener;
 
     // za jedan trening se moze prijaviti vise clanova
     @ManyToMany(mappedBy = "prijavljeniTreninzi")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Clan> prijavljeniClanovi = new HashSet<>();
 
     @OneToMany(mappedBy = "trening")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Termin> treningTermini = new HashSet<>();
 
     @OneToMany(mappedBy = "trening")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<OdradjeniTrening> odradjeniTreninzi = new HashSet<>();
 
     public Long getId() {

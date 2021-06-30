@@ -16,4 +16,6 @@ public interface SalaService {
     Sala findOne(Long id);
 
     Sala update(Sala sala) throws Exception;
+
+    void delete(Long id);
 }

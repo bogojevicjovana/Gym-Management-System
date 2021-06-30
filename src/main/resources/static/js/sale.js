@@ -15,7 +15,10 @@ $(document).ready(function (){
                 row += "<td>" + data[i]['oznaka'] + "</td>";
 
                 var btn1 = "<button class='btnIzmeniSalu' id = " + data[i]['id'] + ">Izmeni</button>";
+                var btn2 = "<button class='btnObrisiSalu' id = " + data[i]['id'] + ">Obrisi</button>";
+
                 row += "<td>" + btn1 + "</td>";
+                row += "<td>" + btn2 + "</td>";
 
                 $('#sale').append(row);
             }
@@ -60,4 +63,19 @@ function formToJSON(kapacitet, oznaka) {
 $(document).on('click', '.btnIzmeniSalu', function () {
     localStorage.setItem('idZaIzmenuSale', this.id);
     window.location.href = "updateSala.html";
+});
+
+$(document).on('click', '.btnObrisiSalu', function () {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/api/fc/delete/" + this.id,
+        success: function (data) {
+            console.log("SUCCESS : ", data);
+            window.location.href = "home.html";
+        },
+        error: function (data) {
+            alert("Greska");
+            console.log("ERROR : ", data);
+        }
+    })
 });

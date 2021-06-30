@@ -6,17 +6,17 @@ $(document).ready(function (){
         dataType: "json",
         success: function (data) {
             console.log("SUCCESS : ", data);
-            for (i = 0; i < data.length; i++) {
+            for (let centar of data) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
-                row += "<td>" + data[i]['naziv'] + "</td>";
-                row += "<td>" + data[i]['brTelefonaCentrale'] + "</td>";
-                row += "<td>" + data[i]['adresa'] + "</td>";
-                row += "<td>" + data[i]['email'] + "</td>";
+                row += "<td>" + centar.id + "</td>";
+                row += "<td>" + centar.naziv + "</td>";
+                row += "<td>" + centar.brTelefonaCentrale + "</td>";
+                row += "<td>" + centar.adresa + "</td>";
+                row += "<td>" + centar.email + "</td>";
 
-                var btn1 = "<button class='btnIzmeniCentar' id = " + data[i]['id'] + ">Izmeni</button>";
-                var btn2 = "<button class='btnIzbrisiCentar' id =" + data[i]['id'] + ">Ukloni</button>";
-                var btn3 = "<button class='btnSaleCentar' id = " + data[i]['id'] + ">Sale</button>";
+                let btn1 = "<button class='btnIzmeniCentar' id = " + centar.id + ">Izmeni</button>";
+                let btn2 = "<button class='btnObrisiCentar' id =" + centar.id + ">Ukloni</button>";
+                let btn3 = "<button class='btnSaleCentar' id = " + centar.id + ">Sale</button>";
 
                 row += "<td>" + btn1 + "</td>";
                 row += "<td>" + btn2 + "</td>";
@@ -38,21 +38,19 @@ $(document).on('click', '.btnIzmeniCentar', function () {
     window.location.href = "updateCentar.html";
 });
 
-$(document).on('click', '.btnIzbrisiCentar', function() {
-    let idZaBrisanje = this.dataset.id;
-
+$(document).on('click', '.btnObrisiCentar', function () {
     $.ajax({
-        type: "DELETE",
-        utl : "http://localhost:8080/api/fc/" + idZaBrisanje,
-        dataType: "json",
-        success: function(){
-            console.log("SUCCESS");
-            $('[data-id="' + idZaBrisanje + '"]').parent().parent().remove();
+        type: "POST",
+        url: "http://localhost:8080/api/fc/delete/" + this.id,
+        success: function (data) {
+            console.log("SUCCESS : ", data);
+            window.location.href = "home.html";
         },
-        error: function() {
-            alert("Greska prilikom uklanjanja fitnes centra!");
+        error: function (data) {
+            alert("Greska");
+            console.log("ERROR : ", data);
         }
-    });
+    })
 });
 
 $(document).on('click', '.btnSaleCentar', function() {

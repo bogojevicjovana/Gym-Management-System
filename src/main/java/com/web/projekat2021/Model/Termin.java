@@ -29,16 +29,15 @@ public class Termin implements Serializable {
     @Column
     private Integer brojPrijavljenihCl;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Trening trening;
 
     // trening u odredjenom terminu se moze odrzati u vise sala
     @ManyToMany(mappedBy = "terminiSala")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Sala> saleTermin = new HashSet<>();
 
     // fitnes centar u kom se odvija termin
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch =  FetchType.LAZY)
     private FitnessCentar fitnessCentar;
 
     public Long getId() {
