@@ -2,6 +2,7 @@ package com.web.projekat2021.Service.impl;
 
 import com.web.projekat2021.Model.Korisnik;
 import com.web.projekat2021.Model.OdradjeniTrening;
+import com.web.projekat2021.Model.Trener;
 import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Repository.KorisnikRepository;
 import com.web.projekat2021.Repository.TreningRepository;
@@ -27,6 +28,17 @@ public class TreningServiceImpl implements TreningService {
 
             List<Trening> treninzi = this.treningRepository.findAll();
             return treninzi;
+    }
+
+    @Override
+    public Trening otkazi(Trening trening)
+    {
+        Trening otkazani = this.treningRepository.getOne(trening.getId());
+
+        otkazani.setOtkazan(true);
+        Trening nt = this.treningRepository.saveAndFlush(otkazani);
+        return nt;
+
     }
 
 

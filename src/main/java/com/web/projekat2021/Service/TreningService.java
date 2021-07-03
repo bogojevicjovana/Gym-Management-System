@@ -25,4 +25,5 @@ public interface TreningService {
 
     List<Trening> findByOpisTr(String opis);
 
+    Trening otkazi(Trening trening);
 }

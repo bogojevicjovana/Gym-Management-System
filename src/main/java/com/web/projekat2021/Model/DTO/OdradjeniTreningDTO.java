@@ -3,11 +3,18 @@ package com.web.projekat2021.Model.DTO;
 public class OdradjeniTreningDTO {
 
     private Long id;
-    private String naziv;
-    private String opis;
-    private String tipTreninga;
-    private String trajanje;
     private Float ocena;
+    private Long idClana;
+    private Long idTreninga;
+
+    public OdradjeniTreningDTO(Long id, Float ocena, Long idClana, Long idTreninga) {
+        this.id = id;
+        this.ocena = ocena;
+        this.idClana = idClana;
+        this.idTreninga = idTreninga;
+    }
+
+    public OdradjeniTreningDTO(){}
 
     public Float getOcena() {
         return ocena;
@@ -17,64 +24,19 @@ public class OdradjeniTreningDTO {
         this.ocena = ocena;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdClana() {
+        return idClana;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdClana(Long idClana) {
+        this.idClana = idClana;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public Long getIdTreninga() {
+        return idTreninga;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setIdTreninga(Long idTreninga) {
+        this.idTreninga = idTreninga;
     }
-
-    public String getOpis() {
-        return opis;
-    }
-
-    public void setOpis(String opis) {
-        this.opis = opis;
-    }
-
-    public String getTipTreninga() {
-        return tipTreninga;
-    }
-
-    public void setTipTreninga(String tipTreninga) {
-        this.tipTreninga = tipTreninga;
-    }
-
-    public String getTrajanje() {
-        return trajanje;
-    }
-
-    public void setTrajanje(String trajanje) {
-        this.trajanje = trajanje;
-    }
-
-    public OdradjeniTreningDTO(){}
-
-    public OdradjeniTreningDTO(Long id, String naziv, String opis, String tipTreninga, String trajanje, Float ocena) {
-        this.id = id;
-        this.naziv = naziv;
-        this.opis = opis;
-        this.tipTreninga = tipTreninga;
-        this.trajanje = trajanje;
-        this.ocena = ocena;
-    }
-
-    public OdradjeniTreningDTO(String naziv, String opis, String tipTreninga, String trajanje, Float ocena) {
-        this.naziv = naziv;
-        this.opis = opis;
-        this.tipTreninga = tipTreninga;
-        this.trajanje = trajanje;
-        this.ocena = ocena;
-    }
-
-
 }

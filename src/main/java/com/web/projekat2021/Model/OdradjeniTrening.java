@@ -19,6 +19,14 @@ public class OdradjeniTrening implements Serializable {
     @ManyToOne
     private Clan clan;
 
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
+    }
+
     @ManyToOne
     private Trening trening;
 
@@ -38,6 +46,13 @@ public class OdradjeniTrening implements Serializable {
         this.ocena = ocena;
     }
 
+    public OdradjeniTrening(Long id, Float ocena, Clan clan, Trening trening) {
+        this.id = id;
+        this.ocena = ocena;
+        this.clan = clan;
+        this.trening = trening;
+    }
+
     public Trening getTrening() {
         return trening;
     }
@@ -45,5 +60,7 @@ public class OdradjeniTrening implements Serializable {
     public void setTrening(Trening trening) {
         this.trening = trening;
     }
+
+    public OdradjeniTrening(){}
 
 }

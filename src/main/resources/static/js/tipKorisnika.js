@@ -6,7 +6,6 @@ $(document).ready(function () {
     var ulogaUlogovanogKorisnika = localStorage.getItem('uloga');
     alert(ulogaUlogovanogKorisnika);
 
-
     if(ulogaUlogovanogKorisnika == 'Admin') {
         AdminDiv.show();
         ClanDiv.hide();

@@ -18,4 +18,8 @@ public class OdradjeniTreningServiceImpl implements OdradjeniTreningService {
     @Autowired
     public OdradjeniTreningServiceImpl(OdradjeniTreningRepository odradjeniTreningRepository) {this.odradjeniTreningRepository = odradjeniTreningRepository;}
 
+    @Override
+    public OdradjeniTrening findOne(Long id) {
+        return this.odradjeniTreningRepository.getOne(id);
+    }
 }

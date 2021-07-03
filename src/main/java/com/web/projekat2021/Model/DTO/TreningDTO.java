@@ -7,6 +7,7 @@ public class TreningDTO {
     private String opis;
     private String tipTreninga;
     private String trajanje;
+    private Boolean otkazan;
 
     public Long getId() {
         return id;
@@ -56,6 +57,23 @@ public class TreningDTO {
         this.opis = opis;
         this.tipTreninga = tipTreninga;
         this.trajanje = trajanje;
+    }
+
+    public Boolean getOtkazan() {
+        return otkazan;
+    }
+
+    public void setOtkazan(Boolean otkazan) {
+        this.otkazan = otkazan;
+    }
+
+    public TreningDTO(Long id, String naziv, String opis, String tipTreninga, String trajanje, Boolean otkazan) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanje = trajanje;
+        this.otkazan = otkazan;
     }
 
     public TreningDTO(String naziv, String opis, String tipTreninga, String trajanje) {

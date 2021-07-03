@@ -83,10 +83,12 @@ public class SalaController {
         return new ResponseEntity<>(izmenjenaSalaDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/delete/{id}")
-    public void deleteSala(@PathVariable("id") long id) {
-        Sala sala = this.salaService.findOne(id);
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteSalu(@PathVariable Long id) {
+        // Pozivanjem metode servisa brišemo zaposlenog po ID-ju
         this.salaService.delete(id);
+        // Vraćamo odgovor 204 NO_CONTENT koji signalizira uspešno brisanje
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

@@ -1,8 +1,9 @@
 package com.web.projekat2021.Controller;
 
 import com.web.projekat2021.Model.Clan;
-import com.web.projekat2021.Model.DTO.TreningDTO;
+import com.web.projekat2021.Model.DTO.*;
 import com.web.projekat2021.Model.OdradjeniTrening;
+import com.web.projekat2021.Model.Sala;
 import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Service.ClanService;
 import com.web.projekat2021.Service.OdradjeniTreningService;
@@ -11,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -92,6 +90,11 @@ public class OdradjeniTreningController {
 
         return new ResponseEntity<>(treninziDTOS, HttpStatus.OK);
     }
+
+
+    
 }
+
+
 
 

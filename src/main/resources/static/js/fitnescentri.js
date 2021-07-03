@@ -40,18 +40,19 @@ $(document).on('click', '.btnIzmeniCentar', function () {
 
 $(document).on('click', '.btnObrisiCentar', function () {
     $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/api/fc/delete/" + this.id,
-        success: function (data) {
-            console.log("SUCCESS : ", data);
+        type: "DELETE",
+        url: "http://localhost:8080/api/fc/" + this.id,
+        dataType: "json",
+        success: function () {
+            console.log("SUCCESS");
             window.location.href = "home.html";
         },
-        error: function (data) {
-            alert("Greska");
-            console.log("ERROR : ", data);
+        error: function () {
+            alert("Greska prilikom brisanja centra");
         }
     })
 });
+
 
 $(document).on('click', '.btnSaleCentar', function() {
     localStorage.setItem('idCentra', this.id);

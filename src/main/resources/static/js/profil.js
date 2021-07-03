@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var idUlogKor = localStorage.getItem('id');
 
+
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/api/korisnici/" + idUlogKor,

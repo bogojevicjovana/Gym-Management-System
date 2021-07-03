@@ -25,10 +25,10 @@ INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (40, 'SALA c', 2);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (30, 'SALA d', 2);
 INSERT INTO SALA(kapacitet, oznaka, fitnesscentar_id) VALUES (10, 'SALA d', 2);
 
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fat Burn', 'visok intenzitet', 'Aerobik', '60min', 4);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('Fitness Mix', 'zabavan trening','Aerobik' ,'60min', 4);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('YogaTime', 'opustajuci trening', 'Yoga', '70min', 4);
-INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id) VALUES ('CardioBurn', 'intenzivno sagorevanje kalorija', 'Cardio', '60min', 4);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id, otkazan) VALUES ('Fat Burn', 'visok intenzitet', 'Aerobik', '60min', 4, false);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id, otkazan) VALUES ('Fitness Mix', 'zabavan trening','Aerobik' ,'60min', 4, false);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id, otkazan) VALUES ('YogaTime', 'opustajuci trening', 'Yoga', '70min', 4, false);
+INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id, otkazan) VALUES ('CardioBurn', 'intenzivno sagorevanje kalorija', 'Cardio', '0', 4, false);
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
 (10, '2000din', '25.05.2021.', '16:30', NULL, 1);

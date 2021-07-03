@@ -1,10 +1,11 @@
 package com.web.projekat2021.Controller;
 
 import com.web.projekat2021.Model.Clan;
-import com.web.projekat2021.Model.DTO.KorisnikDTO;
-import com.web.projekat2021.Model.DTO.LoginKorisnikDTO;
-import com.web.projekat2021.Model.DTO.TreningDTO;
+import com.web.projekat2021.Model.DTO.*;
+import com.web.projekat2021.Model.FitnessCentar;
+import com.web.projekat2021.Model.Trener;
 import com.web.projekat2021.Model.Trening;
+import com.web.projekat2021.Repository.TreningRepository;
 import com.web.projekat2021.Service.ClanService;
 import com.web.projekat2021.Service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class TreningController {
 
     @Autowired
     public ClanService clanService;
+
+    @Autowired
+    public TreningRepository treningRepository;
 
     // izlistavanje treninga
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -143,16 +147,28 @@ public class TreningController {
             throw new Exception("Ne postoje prijavljeni treninzi");
         } else {
             for (Trening trening : treninzi) {
-                TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
-                        trening.getTipTreninga(), trening.getTrajanje());
-                treninziDTOS.add(treningDTO);
+                if (trening.getOtkazan().equals(false)) {
+                    TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
+                            trening.getTipTreninga(), trening.getTrajanje());
+                    treninziDTOS.add(treningDTO);
+                }
             }
         }
 
         return new ResponseEntity<>(treninziDTOS, HttpStatus.OK);
     }
 
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TreningDTO> otkaziTrening(@PathVariable Long id, @RequestBody TreningDTO treningDTO) throws Exception{
 
+       Trening trening = new Trening(treningDTO.getId(), treningDTO.getNaziv(), treningDTO.getOpis(), treningDTO.getTipTreninga(), treningDTO.getTrajanje(), treningDTO.getOtkazan());
 
+       Trening novi = this.treningService.otkazi(trening);
+
+       TreningDTO otkazanTrenerDTO = new TreningDTO(novi.getId(), novi.getNaziv(), novi.getOpis(), novi.getTipTreninga(), novi.getTrajanje(), novi.getOtkazan());
+
+       return new ResponseEntity<>(otkazanTrenerDTO, HttpStatus.OK);
+    }
 
 }

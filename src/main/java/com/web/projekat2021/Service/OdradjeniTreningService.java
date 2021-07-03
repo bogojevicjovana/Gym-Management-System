@@ -9,6 +9,5 @@ import java.util.Set;
 @Service
 public interface OdradjeniTreningService {
 
-
-
+    OdradjeniTrening findOne(Long id);
 }

@@ -67,15 +67,15 @@ $(document).on('click', '.btnIzmeniSalu', function () {
 
 $(document).on('click', '.btnObrisiSalu', function () {
     $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/api/fc/delete/" + this.id,
-        success: function (data) {
-            console.log("SUCCESS : ", data);
-            window.location.href = "home.html";
+        type: "DELETE",
+        url: "http://localhost:8080/api/sale/" + this.id,
+        dataType: "json",
+        success: function () {
+            console.log("SUCCESS");
+            window.location.href = "sale.html";
         },
-        error: function (data) {
-            alert("Greska");
-            console.log("ERROR : ", data);
+        error: function () {
+            alert("Greska prilikom brisanja sale");
         }
     })
 });

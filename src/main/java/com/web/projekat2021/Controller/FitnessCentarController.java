@@ -75,10 +75,12 @@ public class FitnessCentarController {
         return new ResponseEntity<>(izmenjenCentarDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/delete/{id}")
-    public void deleteCentar(@PathVariable("id") long id) {
-        FitnessCentar centar = this.fitnessCentarService.findOne(id);
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteCentar(@PathVariable Long id) {
+        // Pozivanjem metode servisa brišemo zaposlenog po ID-ju
         this.fitnessCentarService.delete(id);
+        // Vraćamo odgovor 204 NO_CONTENT koji signalizira uspešno brisanje
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

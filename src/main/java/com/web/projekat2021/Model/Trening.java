@@ -23,6 +23,17 @@ public class Trening implements Serializable {
     private String opis;
 
     @Column
+    private Boolean otkazan;
+
+    public Boolean getOtkazan() {
+        return otkazan;
+    }
+
+    public void setOtkazan(Boolean otkazan) {
+        this.otkazan = otkazan;
+    }
+
+    @Column
     private String tipTreninga;
 
     @Column
@@ -38,6 +49,17 @@ public class Trening implements Serializable {
 
     @OneToMany(mappedBy = "trening")
     private Set<Termin> treningTermini = new HashSet<>();
+
+    public Trening(Long id, String naziv, String opis, String tipTreninga, String trajanje, Boolean otkazan) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanje = trajanje;
+        this.otkazan = otkazan;
+    }
+
+    public Trening(){}
 
     @OneToMany(mappedBy = "trening")
     private Set<OdradjeniTrening> odradjeniTreninzi = new HashSet<>();

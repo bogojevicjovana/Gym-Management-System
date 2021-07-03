@@ -14,6 +14,7 @@ $(document).ready(function () {
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
                 row += "<td>" + data[i]['trajanje'] + "</td>";
+
                 $('#odradjeniTreninziClana').append(row);
             }
         },
@@ -40,6 +41,10 @@ $(document).ready(function () {
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
                 row += "<td>" + data[i]['trajanje'] + "</td>";
+
+                let btn = "<button class='btnOceni' data-id=" + data[i]['id'] + ">Oceni</button>";  // ubacujemo button u poslednje polje reda
+                row += "<td>" + btn + "</td>";
+
                 $('#odradjeniTreninziClanaBezOcene').append(row);
             }
         },
@@ -48,4 +53,9 @@ $(document).ready(function () {
             console.log("ERROR : ", data);
         }
     });
+});
+
+$(document).on('click', '.btnOceni', function () {
+    localStorage.setItem('idZaOcenuTreninga', this.id);
+    window.location.href = "oceniTrening.html";
 });

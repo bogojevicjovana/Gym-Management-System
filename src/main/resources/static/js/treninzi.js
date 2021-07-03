@@ -29,5 +29,39 @@ $(document).ready(function () {
     });
 });
 
+$(document).on('click', '.btnOtkazi', function () {
+    var treningId = this.id;
+    var treningNaziv = this.naziv;
+    var treningOpis = this.opis;
+    var treningTip = this.tipTreninga;
+    var treningTrajanje = this.trajanje;
+    var treningOtk = this.otkazan;
 
+    var treningToUpdate = formToJSON(treningId, treningOpis, treningTrajanje, treningTip, treningNaziv, treningOtk);
 
+        $.ajax({
+                type: "PUT",
+                url: "http://localhost:8080/api/treninzi/" + treningId,
+                dataType: "json",
+                contentType: "application/json",
+                data: treningToUpdate,
+                success: function () {
+                    console.log("SUCCESS");
+                    window.location.href = "home.html";
+                },
+                error: function () {
+                    alert("Greška");
+                }
+            });
+        });
+
+function formToJSON(idtreninga, opistr, trajanjetr, tiptr, nazivtr, treningOtk){
+    return JSON.stringify({
+        "id": idtreninga,
+        "naziv": nazivtr,
+        "trajanje": trajanjetr,
+        "opis": opistr,
+        "tipTreninga": tiptr,
+        "otkazan": treningOtk
+    })
+}

@@ -22,7 +22,7 @@ public class Sala implements Serializable {
     private String oznaka;
 
     //fitnes centar u kom se nalazi sala
-    @ManyToOne(fetch =  FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch =  FetchType.LAZY)
     private FitnessCentar fitnesscentar;
 
     // u jednoj sali se moze odrzati vise treninga u razlicitim terminima
