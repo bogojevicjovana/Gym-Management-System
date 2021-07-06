@@ -3,18 +3,34 @@ package com.web.projekat2021.Model.DTO;
 public class OdradjeniTreningDTO {
 
     private Long id;
+    private Long idTreninga;
     private Float ocena;
     private Long idClana;
-    private Long idTreninga;
-
-    public OdradjeniTreningDTO(Long id, Float ocena, Long idClana, Long idTreninga) {
-        this.id = id;
-        this.ocena = ocena;
-        this.idClana = idClana;
-        this.idTreninga = idTreninga;
-    }
 
     public OdradjeniTreningDTO(){}
+
+    public OdradjeniTreningDTO(Long id, Long idTreninga, Float ocena, Long idClana) {
+        this.id = id;
+        this.idTreninga = idTreninga;
+        this.ocena = ocena;
+        this.idClana = idClana;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdTreninga() {
+        return idTreninga;
+    }
+
+    public void setIdTreninga(Long idTreninga) {
+        this.idTreninga = idTreninga;
+    }
 
     public Float getOcena() {
         return ocena;
@@ -30,13 +46,5 @@ public class OdradjeniTreningDTO {
 
     public void setIdClana(Long idClana) {
         this.idClana = idClana;
-    }
-
-    public Long getIdTreninga() {
-        return idTreninga;
-    }
-
-    public void setIdTreninga(Long idTreninga) {
-        this.idTreninga = idTreninga;
     }
 }

@@ -71,4 +71,15 @@ public class TreningServiceImpl implements TreningService {
     public List<Trening> findByOpisTr(String opis){
         return treningRepository.findByOpisIgnoreCaseContaining(opis);
     }
+
+    @Override
+    public Trening findOne(Long idTreninga){
+        return this.treningRepository.getOne(idTreninga);
+    }
+
+    @Override
+    public List<Trening> findAllByOpisOrNazivOrTipTreninga(String naziv, String opis, String tipTreninga)
+    {
+        return treningRepository.findAllByOpisOrNazivOrTipTreninga(naziv, opis, tipTreninga);
+    }
 }

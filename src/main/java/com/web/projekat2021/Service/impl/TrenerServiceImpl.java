@@ -2,6 +2,7 @@ package com.web.projekat2021.Service.impl;
 
 import com.web.projekat2021.Model.Clan;
 import com.web.projekat2021.Model.Trener;
+import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Repository.ClanRepository;
 import com.web.projekat2021.Repository.TrenerRepository;
 import com.web.projekat2021.Service.TrenerService;
@@ -91,5 +92,7 @@ public class TrenerServiceImpl implements TrenerService {
 
     @Override
     public void obrisi(Long id) {this.trenerRepository.deleteById(id);}
+
+
 
 }

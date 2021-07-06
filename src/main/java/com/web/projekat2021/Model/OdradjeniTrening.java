@@ -46,8 +46,7 @@ public class OdradjeniTrening implements Serializable {
         this.ocena = ocena;
     }
 
-    public OdradjeniTrening(Long id, Float ocena, Clan clan, Trening trening) {
-        this.id = id;
+    public OdradjeniTrening(Float ocena, Clan clan, Trening trening) {
         this.ocena = ocena;
         this.clan = clan;
         this.trening = trening;

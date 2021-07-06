@@ -10,4 +10,6 @@ import java.util.Set;
 public interface OdradjeniTreningService {
 
     OdradjeniTrening findOne(Long id);
+
+    OdradjeniTrening create(OdradjeniTrening novi);
 }

@@ -18,4 +18,6 @@ public interface TreningRepository extends JpaRepository<Trening, Long> {
     List<Trening> findByTipTreningaIgnoreCaseContaining(String naziv);
 
     List<Trening> findByOpisIgnoreCaseContaining(String opis);
+
+    List<Trening> findAllByOpisOrNazivOrTipTreninga(String naziv, String opis, String tipTreninga);
 }

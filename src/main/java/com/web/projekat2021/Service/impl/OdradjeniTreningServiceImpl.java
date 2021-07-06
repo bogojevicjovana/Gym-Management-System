@@ -22,4 +22,9 @@ public class OdradjeniTreningServiceImpl implements OdradjeniTreningService {
     public OdradjeniTrening findOne(Long id) {
         return this.odradjeniTreningRepository.getOne(id);
     }
+
+    @Override
+    public OdradjeniTrening create(OdradjeniTrening novi) {
+        return this.odradjeniTreningRepository.save(novi);
+    }
 }

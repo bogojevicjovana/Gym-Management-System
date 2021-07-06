@@ -27,7 +27,6 @@ public class KorisnikController {
         this.korisnikService = korisnikService;
     }
 
-
     //login korisnika
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,

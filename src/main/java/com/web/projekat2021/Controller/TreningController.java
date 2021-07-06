@@ -171,4 +171,12 @@ public class TreningController {
        return new ResponseEntity<>(otkazanTrenerDTO, HttpStatus.OK);
     }
 
+    @PostMapping(value = "/pretraga", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Trening>> pretraziTreninge(@RequestBody Trening treningDTO) {
+
+        List<Trening> treninzi = treningService.findAllByOpisOrNazivOrTipTreninga(treningDTO.getNaziv(), treningDTO.getOpis(), treningDTO.getTipTreninga());
+
+        return new ResponseEntity<>(treninzi, HttpStatus.OK);
+    }
+
 }

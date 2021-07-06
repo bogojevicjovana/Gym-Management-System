@@ -26,4 +26,8 @@ public interface TreningService {
     List<Trening> findByOpisTr(String opis);
 
     Trening otkazi(Trening trening);
+
+    Trening findOne(Long idTreninga);
+
+    List<Trening> findAllByOpisOrNazivOrTipTreninga(String naziv, String opis, String tipTreninga);
 }
