@@ -23,7 +23,6 @@ $(document).ready(function () {
 
             for(let trener of data) {                               // prolazimo kroz listu svih trenera
                 let row = "<tr>";                                   // kreiramo red za tabelu
-                row += "<td>" + trener.id + "</td>";                // ubacujemo podatke jednog trenera u polja
                 row += "<td>" + trener.ime + "</td>";
                 row += "<td>" + trener.prezime + "</td>";
                 row += "<td>" + trener.korisnickoIme + "</td>";
@@ -92,7 +91,6 @@ $(document).ready(function () {
 
             for(let trener of data) {                               // prolazimo kroz listu svih trenera
                 let row = "<tr>";                                   // kreiramo red za tabelu
-                row += "<td>" + trener.id + "</td>";                // ubacujemo podatke jednog trenera u polja
                 row += "<td>" + trener.ime + "</td>";
                 row += "<td>" + trener.prezime + "</td>";
                 row += "<td>" + trener.korisnickoIme + "</td>";

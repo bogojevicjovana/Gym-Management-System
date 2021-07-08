@@ -55,7 +55,7 @@ $(document).ready(function () {
             console.log("SUCCESS : ", data);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
@@ -88,7 +88,7 @@ $(document).on('click', '#btnSearchNaziv', function () {
             $('#searchPoNazivu').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
@@ -122,7 +122,7 @@ $(document).on('click', '#btnSearchTip', function () {
             $('#searchPoTipu').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
@@ -156,7 +156,6 @@ $(document).on('click', '#btnSearchOpis', function () {
             $('#searchPoOpis').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
@@ -195,7 +194,7 @@ $(document).on('click', '#btnSearch', function () {
             $('#searchPoTipu').append(searchVar3);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";

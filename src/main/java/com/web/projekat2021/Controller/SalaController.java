@@ -36,9 +36,9 @@ public class SalaController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/{id}")
     public ResponseEntity<Set<SalaDTO>> dobaviSale(@PathVariable(name = "id") Long id) throws Exception{
-        FitnessCentar centar = fitnessCentarService.findOne(id);        // pronaci centar po prosledjenom id-ju
+        FitnessCentar centar = fitnessCentarService.findOne(id);
 
-        Set<Sala> listaSala = centar.getSale();                         // pronaci listu sala za taj centar
+        Set<Sala> listaSala = centar.getSale();
 
         Set<SalaDTO> salaDTOs = new HashSet<>();
 

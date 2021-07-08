@@ -10,7 +10,6 @@ $(document).ready(function (){
             console.log("SUCCESS : ", data);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
                 row += "<td>" + data[i]['kapacitet'] + "</td>";
                 row += "<td>" + data[i]['oznaka'] + "</td>";
 

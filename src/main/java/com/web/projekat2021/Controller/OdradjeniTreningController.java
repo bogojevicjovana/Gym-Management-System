@@ -64,7 +64,7 @@ public class OdradjeniTreningController {
     }
 
     @GetMapping(value = "/prikazOdradjenihBezOcene/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<TreningDTO>> pregledOdradjenihTreningaBezOcene(@PathVariable(name = "id") Long idClana) throws Exception{
+    public ResponseEntity<Set<OdradjeniDTO>> pregledOdradjenihTreningaBezOcene(@PathVariable(name = "id") Long idClana) throws Exception{
 
         Clan clan = clanService.findOne(idClana);
         Set<OdradjeniTrening> odradjeniTreninzi = clan.getOdradjeniTreninziClana();
@@ -78,19 +78,18 @@ public class OdradjeniTreningController {
             }
         }
 
-        Set<TreningDTO> treninziDTOS = new HashSet<>();
+        Set<OdradjeniDTO> odrDTOs = new HashSet<>();
 
-        if (treninziOdr == null) {
-            throw new Exception("Ne postoje odradjeni treninzi");
-        } else {
-            for (Trening trening : treninziOdr) {
-                TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
-                        trening.getTipTreninga(), trening.getTrajanje());
-                treninziDTOS.add(treningDTO);
+        for(OdradjeniTrening odradjeni: odradjeniTreninzi){
+            for(Trening tr: treninziOdr){
+                if(odradjeni.getTrening().equals(tr)){
+                    OdradjeniDTO odradjeniDTO = new OdradjeniDTO(tr.getId(), tr.getNaziv(), tr.getOpis(), tr.getTipTreninga(), tr.getTrajanje(), odradjeni.getOcena());
+                    odrDTOs.add(odradjeniDTO);
+                }
             }
         }
 
-        return new ResponseEntity<>(treninziDTOS, HttpStatus.OK);
+        return new ResponseEntity<>(odrDTOs, HttpStatus.OK);
     }
 
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -117,7 +116,7 @@ public class OdradjeniTreningController {
     }
 
     @GetMapping(value = "/prikazOdradjenihSaOcenom/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<TreningDTO>> pregledOdradjenihTreningaSaOcenom(@PathVariable(name = "id") Long idClana) throws Exception{
+    public ResponseEntity<Set<OdradjeniDTO>> pregledOdradjenihTreningaSaOcenom(@PathVariable(name = "id") Long idClana) throws Exception{
 
         Clan clan = clanService.findOne(idClana);
         Set<OdradjeniTrening> odradjeniTreninzi = clan.getOdradjeniTreninziClana();
@@ -131,19 +130,18 @@ public class OdradjeniTreningController {
             }
         }
 
-        Set<TreningDTO> treninziDTOS = new HashSet<>();
+        Set<OdradjeniDTO> odrDTOs = new HashSet<>();
 
-        if (treninziOdr == null) {
-            throw new Exception("Ne postoje odradjeni treninzi bez ocene");
-        } else {
-            for (Trening trening : treninziOdr) {
-                TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(),
-                        trening.getTipTreninga(), trening.getTrajanje());
-                treninziDTOS.add(treningDTO);
+        for(OdradjeniTrening odradjeni: odradjeniTreninzi){
+            for(Trening tr: treninziOdr){
+                if(odradjeni.getTrening().equals(tr)){
+                    OdradjeniDTO odradjeniDTO = new OdradjeniDTO(tr.getId(), tr.getNaziv(), tr.getOpis(), tr.getTipTreninga(), tr.getTrajanje(), odradjeni.getOcena());
+                    odrDTOs.add(odradjeniDTO);
+                }
             }
         }
 
-        return new ResponseEntity<>(treninziDTOS, HttpStatus.OK);
+        return new ResponseEntity<>(odrDTOs, HttpStatus.OK);
     }
 }
 

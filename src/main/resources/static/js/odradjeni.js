@@ -9,7 +9,7 @@ $(document).ready(function () {
             console.log("SUCCESS : ", data);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
@@ -36,11 +36,12 @@ $(document).ready(function () {
             console.log("SUCCESS : ", data);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
                 row += "<td>" + data[i]['trajanje'] + "</td>";
+
 
                 var btn1 = "<button class='btnOceni' id = " + data[i]['id'] + ">Oceni</button>";  // ubacujemo button u poslednje polje reda
                 row += "<td>" + btn1 + "</td>";
@@ -107,11 +108,12 @@ $(document).ready(function () {
             console.log("SUCCESS : ", data);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['id'] + "</td>";
+
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";
                 row += "<td>" + data[i]['trajanje'] + "</td>";
+                row += "<td>" + data[i]['ocena'] + "</td>";
 
                 $('#odradjeniTreninziClanaSaOcenom').append(row);
             }

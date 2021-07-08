@@ -8,7 +8,6 @@ $(document).ready(function (){
             console.log("SUCCESS : ", data);
             for (let centar of data) {
                 var row = "<tr>";
-                row += "<td>" + centar.id + "</td>";
                 row += "<td>" + centar.naziv + "</td>";
                 row += "<td>" + centar.brTelefonaCentrale + "</td>";
                 row += "<td>" + centar.adresa + "</td>";
@@ -52,7 +51,6 @@ $(document).on('click', '.btnObrisiCentar', function () {
         }
     })
 });
-
 
 $(document).on('click', '.btnSaleCentar', function() {
     localStorage.setItem('idCentra', this.id);
