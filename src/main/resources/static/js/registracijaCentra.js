@@ -17,7 +17,7 @@ $(document).on("submit", "form", function (event) {
         data: noviCentarJSON,
         success: function (data) {
             alert("Uspesno kreiran novi fitness centar");
-            window.location.href = "home.html";
+            window.location.href = "sale.html";
         },
     });
 });

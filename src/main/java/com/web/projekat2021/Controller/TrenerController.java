@@ -2,10 +2,13 @@ package com.web.projekat2021.Controller;
 
 import com.web.projekat2021.Model.Clan;
 import com.web.projekat2021.Model.DTO.ClanDTO;
+import com.web.projekat2021.Model.DTO.FitnessCentarDTO;
 import com.web.projekat2021.Model.DTO.TrenerDTO;
 import com.web.projekat2021.Model.DTO.TreningDTO;
+import com.web.projekat2021.Model.FitnessCentar;
 import com.web.projekat2021.Model.Trener;
 import com.web.projekat2021.Model.Trening;
+import com.web.projekat2021.Service.FitnessCentarService;
 import com.web.projekat2021.Service.KorisnikService;
 import com.web.projekat2021.Service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,9 @@ public class TrenerController {
     public TrenerController(TrenerService trenerService) {
         this.trenerService = trenerService;
     }
+
+    @Autowired
+    public FitnessCentarService fitnessCentarService;
 
     //registracija trenera fitnes centra
     @PostMapping(
@@ -128,6 +134,17 @@ public class TrenerController {
                 noviTrener.getIme(), noviTrener.getPrezime(), noviTrener.getUloga(), noviTrener.getKontaktTelefon(), noviTrener.getDatumRodjenja(),
                 noviTrener.getEmail(), noviTrener.getAktivan());
         return new ResponseEntity<>(newTrenerDTO, HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/centri/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<FitnessCentarDTO> dobaviCentre(@PathVariable(name = "id") Long idTrenera){
+        Trener trener = this.trenerService.findOne(idTrenera);
+
+        FitnessCentar centarTrener = trener.getFitnesscentar();
+
+        FitnessCentarDTO centarDTO = new FitnessCentarDTO(centarTrener.getId(), centarTrener.getNaziv(), centarTrener.getBrTelefonaCentrale(), centarTrener.getAdresa(), centarTrener.getEmail());
+
+        return new ResponseEntity<>(centarDTO, HttpStatus.OK);
     }
 
 }

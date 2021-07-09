@@ -294,3 +294,43 @@ h3 {
     margin: auto;
     text-align: center;
 }
+
+#table {
+    width: 100%;
+}
+
+h1 {
+    color: #6AA0AB;
+}
+
+h3 {
+    color: #6AA0AB;
+}
+
+#treninziTrenera th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #EE8477;
+    color: white;
+}
+
+#treninziTrenera td, #treninziTrenera th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#treninziTrenera tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#treninziTrenera tr:hover {
+    background-color: #ddd;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}

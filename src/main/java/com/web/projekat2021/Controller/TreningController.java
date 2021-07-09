@@ -1,12 +1,10 @@
 package com.web.projekat2021.Controller;
 
-import com.web.projekat2021.Model.Clan;
+import com.web.projekat2021.Model.*;
 import com.web.projekat2021.Model.DTO.*;
-import com.web.projekat2021.Model.FitnessCentar;
-import com.web.projekat2021.Model.Trener;
-import com.web.projekat2021.Model.Trening;
 import com.web.projekat2021.Repository.TreningRepository;
 import com.web.projekat2021.Service.ClanService;
+import com.web.projekat2021.Service.TrenerService;
 import com.web.projekat2021.Service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,6 +30,9 @@ public class TreningController {
 
     @Autowired
     public ClanService clanService;
+
+    @Autowired
+    public TrenerService trenerService;
 
     @Autowired
     public TreningRepository treningRepository;
@@ -169,6 +170,27 @@ public class TreningController {
        TreningDTO otkazanTrenerDTO = new TreningDTO(novi.getId(), novi.getNaziv(), novi.getOpis(), novi.getTipTreninga(), novi.getTrajanje(), novi.getOtkazan());
 
        return new ResponseEntity<>(otkazanTrenerDTO, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/dobavi/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<TerminTreningDTO>> treninziTrenera(@PathVariable(name = "id") Long idTrenera) throws Exception {
+
+        Trener trener = this.trenerService.findOne(idTrenera);
+        Set<Trening> listaTreninga = trener.getTreninziTrenera();
+
+        Set<TerminTreningDTO> terminiTrenDTOs = new HashSet<>();
+
+        for(Trening tren: listaTreninga){
+            Set<Termin> termini = tren.getTreningTermini();
+            for(Termin termin: termini){
+                if(termin.getTrening().equals(tren)){
+                    TerminTreningDTO terminDTO = new TerminTreningDTO(tren.getId(), tren.getNaziv(), tren.getTipTreninga(), tren.getOpis(), tren.getTrajanje(), termin.getDatum(), termin.getVreme(), termin.getCena());
+                    terminiTrenDTOs.add(terminDTO);
+                }
+            }
+        }
+
+        return new ResponseEntity<>(terminiTrenDTOs, HttpStatus.OK);
     }
 
 }

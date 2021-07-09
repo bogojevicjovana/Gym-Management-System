@@ -50,6 +50,14 @@ public class Trening implements Serializable {
     @OneToMany(mappedBy = "trening")
     private Set<Termin> treningTermini = new HashSet<>();
 
+    public Set<Termin> getTreningTermini() {
+        return treningTermini;
+    }
+
+    public void setTreningTermini(Set<Termin> treningTermini) {
+        this.treningTermini = treningTermini;
+    }
+
     public Trening(Long id, String naziv, String opis, String tipTreninga, String trajanje, Boolean otkazan) {
         this.id = id;
         this.naziv = naziv;

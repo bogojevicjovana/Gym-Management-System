@@ -14,6 +14,9 @@ INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('
 INSERT INTO fitness_centar(naziv, adresa, br_telefona_centrale, email) VALUES ('XGym', 'Danila Kisa 18, Novi Sad', 00381123855457, 'xgym@gmail.com');
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
+VALUES ('sanja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'sanjai@gmail.com', true, 'trener', 1, 9.3);
+
+INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
 VALUES ('petar.petrovic', 'sifra12', 'Petar', 'Petrovic', 'Trener', 00381674177545, '22.04.1995.', 'petrovicpe@gmail.com', false, 'trener', NULL, 9.5);
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip, fitnesscentar_id, prosecna_ocena)
@@ -33,10 +36,14 @@ INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id, otkazan) VAL
 INSERT INTO TRENING(naziv, opis, tip_treninga, trajanje, trener_id, otkazan) VALUES ('Step', 'Kardio vežbe i vežbe snage', 'Cardio', '55min', 4, false);
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
-(10, '2000din', '25.05.2021.', '16:30', 1, 1);
+(12, '2500din', '13.07.2021.', '16:30', 1, 1);
 
 INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
-(10, '2000din', '15.05.2021', '17:00', 2, 2);
+(10, '2000din', '15.07.2021', '17:00', 1, 1);
+
+INSERT INTO TERMIN(broj_prijavljenih_cl, cena, datum, vreme, fitness_centar_id, trening_id) VALUES
+(10, '2000din', '15.07.2021', '17:00', 1, 2);
+
 
 INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (2, 1);
 INSERT INTO PRIJAVLJENI_TRENINZI(korisnik_id, trening_id) VALUES (2, 2);
@@ -54,8 +61,6 @@ INSERT INTO ODRADJENI_TRENING(ocena, clan_id, trening_id) VALUES (NULL, 3, 6);
 
 INSERT INTO RASPORED_SALA_TERMIN(sala_id, termin_id) VALUES (1, 1);
 
-INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
-VALUES ('sanja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'sanjai@gmail.com', true, 'trener');
 
 INSERT INTO KORISNIK(korisnicko_ime, lozinka, ime, prezime, uloga, kontakt_telefon, datum_rodjenja, email, aktivan, tip)
-VALUES ('manja.ivkovic', 'sifra123', 'Sanja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'sanjai@gmail.com', true, 'trener');
+VALUES ('minja.ivkovic', 'sifra123', 'Minja', 'Ivkovic', 'Trener', 00381644511145, '22.05.1990.', 'minjai@gmail.com', true, 'trener');
