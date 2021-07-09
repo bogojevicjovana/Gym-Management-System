@@ -46,7 +46,7 @@ $(document).on('click', '.btnOtkazi', function () {
                 data: treningToUpdate,
                 success: function () {
                     console.log("SUCCESS");
-                    window.location.href = "home.html";
+                    window.location.href = "prijavljeni.html";
                 },
                 error: function () {
                     alert("Greška");

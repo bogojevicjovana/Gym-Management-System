@@ -44,7 +44,7 @@ $(document).on('click', '.btnObrisiCentar', function () {
         dataType: "json",
         success: function () {
             console.log("SUCCESS");
-            window.location.href = "home.html";
+            window.location.href = "sale.html";
         },
         error: function () {
             alert("Greska prilikom brisanja centra");

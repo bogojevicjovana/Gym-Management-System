@@ -19,6 +19,14 @@ function formToJSONsrc(naziv, tipTreninga, opis) {
     );
 }
 
+function formToJSONnaziv(naziv) {
+    return JSON.stringify(
+        {
+            "naziv": naziv
+        }
+    );
+}
+
 function formToJSON3(tipTreninga) {
     return JSON.stringify(
         {
@@ -156,45 +164,6 @@ $(document).on('click', '#btnSearchOpis', function () {
             $('#searchPoOpis').append(searchVar);
             for (i = 0; i < data.length; i++) {
                 var row = "<tr>";
-                row += "<td>" + data[i]['naziv'] + "</td>";
-                row += "<td>" + data[i]['opis'] + "</td>";
-                row += "<td>" + data[i]['tipTreninga'] + "</td>";
-                row += "<td>" + data[i]['trajanje'] + "</td>";
-                $('#tableSearch').append(row);
-            }
-
-        },
-        error: function (data) {
-            console.log("ERROR: ", data);
-
-        }
-    });
-});
-
-$(document).on('click', '#btnSearch', function () {
-
-    var searchVar1 = $("#searchPoOpis").val();
-    var searchVar2 = $("#searchPoNazivu").val();
-    var searchVar3 = $("#searchPoTipu").val();
-
-    var myJSON = formToJSONsrc(searchVar1, searchVar2, searchVar3);
-
-
-    $('#tableSearch').empty();
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/api/treninzi/pretraga",
-        dataType: "json",
-        contentType: "application/json",
-        data: myJSON,
-        success: function (data) {
-            console.log("SUCCESS: ", data);
-            $('#searchPoOpis').append(searchVar1);
-            $('#searchPoNazivu').append(searchVar2);
-            $('#searchPoTipu').append(searchVar3);
-            for (i = 0; i < data.length; i++) {
-                var row = "<tr>";
-
                 row += "<td>" + data[i]['naziv'] + "</td>";
                 row += "<td>" + data[i]['opis'] + "</td>";
                 row += "<td>" + data[i]['tipTreninga'] + "</td>";

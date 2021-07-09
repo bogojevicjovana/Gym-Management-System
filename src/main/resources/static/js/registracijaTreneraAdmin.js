@@ -21,7 +21,7 @@ $(document).on("submit", "form", function (event) {           // kada je submito
         data: noviTrenerJSON,                       //u body-ju salje se novi trener
         success: function (data) {                  // poslije uspjesnog zahtjeva izvrsava se ova funkcija
             alert(ime + " " + prezime + " je uspešno kreiran kao " + uloga);    //prikazuje se poruka o uspjehu
-            window.location.href = "home.html";                                //redirektujemo na login.html
+            window.location.href = "treneri.html";                                //redirektujemo na login.html
         },
 
         error: function (data) {                                                //ukoliko se desi neuspjesan zahtjev
